@@ -1,0 +1,344 @@
+<!-- index.html-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pancho Fiesta</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.js"></script>
+    
+</head>
+
+<body>
+
+
+    <header class="header">
+        <div class="menu container">
+            <a href="#" class="logo">
+                <!-- Agrega una clase al contenedor del logo para aplicar estilos específicos -->
+                <div class="logo-container">
+                    <img src="img/Pan.png" alt="Logo del Local">
+                </div>
+            </a>
+           
+            <input type="checkbox" id="menu">
+            <label for="menu">
+                <img src="img/pr11.png" class="menu-icono" alt="menu">
+            </label>
+            <nav class="navbar">
+                <ul class="menu-list">
+                    <li><a href="#lista-10">Combos</a></li>
+                    <li><a href="#lista-1">Snacks</a></li>
+                    <!-- Agrega una clase "dropdown" a la lista desplegable -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-btn">Hamburguesas</a>
+                        <!-- Agrega el contenido del menú desplegable -->
+                        <div class="dropdown-content">
+                            <a href="#lista-2">Promo 20 Hamburguesas Gigantes 120 y 125 grs</a>
+                            <a href="#lista-3">Promo 40 Hamburguesas Gigantes 120 y 125 grs</a>
+                            <a href="#lista-4">Promo 30 Hamburguesas Trad. 69 grs.</a>
+                            <a href="#lista-5">Promo 60 Hamburguesas Trad. 69 grs.</a>
+                            <a href="#lista-6">Promo 30 Hamburguesas parrilleras 83 grs.</a>
+                            <a href="#lista-7">Promo 48 Hamburguesas parrilleras 83 grs.</a>
+                            
+                        </div>
+                    </li>
+                    <li><a href="#lista-8">Panchos Cortos</a></li>
+                    <li><a href="#lista-9" >Super Panchos</a></li>
+                </ul>
+            </nav>
+            <div>
+                <ul>
+                    <li class="submenu" onclick="toggleCarrito()">
+                        <img id="img-carrito" src="img/car.svg" alt="car">
+                        <div id="carrito">
+                            <table id="lista-carrito">
+                                <thead>
+                                    <tr>
+                                        <th>Imagen</th>
+                                        <th>Nombre</th>
+                                        <th>Precio</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                            <a href="#" id="vaciar-carrito" class="btn-3">Vaciar Carrito</a>
+                            <button type="button" id="enviar-pedido" class="btn-3">Enviar Pedido</button>
+                            <div id="total">Total: 0.00 $</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="resumen-popup">
+            <table>
+                <tr>
+                    <th>Artículo</th>
+                    <th>Cantidad</th>
+                    <th>Valor por Artículo</th>
+                    <th>Total por Artículo</th>
+                </tr>
+                <!-- Aquí deberías tener filas para cada artículo en el carrito -->
+            </table>
+            <div>Total de la Compra: 400.00 $</div>
+            <!-- Agrega este botón en tu popup resumen -->
+            <button id="aceptar-compra-btn">Aceptar Compra</button>
+        </div>
+
+
+
+    <div class="header-content container">
+        <div class="header-txt">
+            <span>Bienvenido a nuestra tienda</span>
+            <h1>ofertas especiales</h1>
+            <p>
+                Tenemos los mejores productos y calidad en panchos cortos y Super Panchos. A precios muy competitivos.
+            </p>
+            <div class="butons">
+                <a href="#lista-8" class="btn-1">Ver Ofertas Panchos Cortos</a>
+                <a href="#lista-9" class="btn-1">Ver ofertas Super Panchos</a>
+            </div>
+
+        </div>
+        <div class="header-img">
+            <img src="img/salchichas190.png" alt="">
+        </div>
+    </div>
+
+    </header>
+    <section class="oferts container">
+        <div class="ofert-1 b1">
+            <div class="ofert-txt">
+                <h3>Ofertas insuperables en Hamburguesas Parrilleras. </h3>
+                <a href="#lista-6">Ir a las Ofertas</a>
+            </div>
+            <div class="ofert-img">
+                <img src="img/Hamb (2).png" alt="">
+            </div>
+        </div>
+        <div class="ofert-1 b2">
+            <div class="ofert-txt">
+                <h3>Las mejores marcas de Panchos Cortos. </h3>
+                <a href="#">Ir a las Ofertas</a>
+            </div>
+            <div class="ofert-img">
+                <img src="img/pancho.png" alt="">
+            </div>
+        </div>
+        <div class="ofert-1 b3">
+            <div class="ofert-txt">
+                <h3>Tu combo de Snacks al mejor precio. </h3>
+                <a href="#">Ir a las Ofertas</a>
+            </div>
+            <div class="ofert-img">
+                <img src="img/papas.png" alt="">
+            </div>
+        </div>
+
+    </section>
+
+    <main class="products container">
+
+        <h2>Snacks</h2>
+        <div class="box-container" id="lista-1">
+        </div>
+        
+        <h2>Promo <br> 20 Hamburguesas Gigantes  <br> 110 grs. y 125 grs. con Pan y Aderezo </h2>
+        <div class="box-container" id="lista-2"> </div>
+    
+
+        <h2>Promo <br> 40 Hamburguesas Gigantes  <br> 110 grs. y 125 grs. con Pan y Aderezo </h2>
+        <div class="box-container" id="lista-3">
+        </div>
+    
+        
+        <h2>Promo <br> 30 hamburguesas tradicionales <br> de 69 grs con pan y aderezo </h2>
+        <div class="box-container" id="lista-4"></div>
+
+
+        <h2>Promo <br> 60 hamburguesas tradicionales <br> de 69 grs con pan y aderezo </h2>
+        <div class="box-container" id="lista-5"></div>
+
+
+        <h2>Promo <br> 30 hamburguesas Parrilleras <br> de 83 grs con pan y aderezo </h2>
+        <div class="box-container" id="lista-6"></div>
+
+
+        <h2>Promo <br> 48 hamburguesas Parrilleras <br> de 83 grs con pan y aderezo </h2>
+        <div class="box-container" id="lista-7"></div>
+
+        <h2>Promo <br> 30 Panchos Cortos con pan y aderezo </h2>
+        <div class="box-container" id="lista-8"></div>
+
+        <h2>Promo <br> 36 Super Panchos con pan y aderezo </h2>
+        <div class="box-container" id="lista-9"></div>
+
+        <h2>COMBO <br> Palitos, Papas fritas, Mani y Chizitos</h2>
+        <div class="box-container" id="lista-10"></div>
+    
+        
+    </main>
+    <section class="testimonial container">
+    
+        <h2>Que opinan nuestros clientes</h2>
+        <div class="testimonal-content">
+            <div class="testimonial-1">
+                <p>
+                    Necesitábamos con urgencia una entrega un domingo y el equipo de Pancho Fiesta nos salvó. Nuestros productos llegaron a tiempo . Son confiable en días no laborables. ¡Gracias, Pancho Fiesta! Definitivamente, nuestra primera opción.
+                </p>
+                <img src="img/starts.png" alt="">
+                <h4>Kiosco "Jorge" C.A.B.A</h4>
+            </div>
+
+            <div class="testimonial-1">
+                <p>
+                    "Pancho Fiesta es mi proveedor desde hace varios años, la atención al cliente es muy buena. El servicio que brindan es excelente y productos llegan frescos y a tiempo.
+                </p>
+                <img src="img/starts.png" alt="">
+                <h4>Salon de fiestas Caballito  C.A.B.A</h4>
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content container">
+            <!-- Sección Quienes Somos -->
+            <div class="footer-section">
+                <h3>¿Quienes Somos? Pancho Fiesta</h3>
+                <ul>
+                    <li><a href="">Con más de 15 años de experiencia en el rubro, somos líderes como distribuidores de hamburguesas, super panchos y panificados. Nuestra trayectoria está marcada por el compromiso con la calidad, la variedad excepcional de productos, y un servicio personalizado que ha establecido relaciones duraderas con nuestros clientes. Respaldados por proveedores de confianza, garantizamos eficiencia en la distribución y precios competitivos. Nos enorgullece ser tu socio confiable para llevar la excelencia gastronómica a tu negocio</a></li>
+                </ul>
+            </div>
+    
+            <!-- Sección Contacto -->
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <ul>
+                    <li><strong>Email:</strong> panchofiestaok@gmail.com</li>
+                    <li><strong>Teléfono:</strong> +123 456 789</li>
+                    <li><strong>Dirección:</strong>Av. Enrique Santamarina 706, B1842JOO Gran Buenos Aires, Provincia de Buenos Aires</li>
+                </ul>
+                
+                <!-- Corregir el código del iframe -->
+                <iframe
+            width="100%"
+            height="300"
+            frameborder="0"
+            style="border:0;"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3275.266989935412!2d-58.480545305705604!3d-34.82437909924166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcd142bd1ddeb7%3A0x9426f1a73c9bc708!2sAv.%20Enrique%20Santamarina%20706%2C%20B1842JOO%20Gran%20Buenos%20Aires%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1708877137748!5m2!1ses-419!2sar"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+            </div>
+    
+            <!-- Sección Desarrollado por -->
+            <div class="footer-section">
+                <h3>Desarrollado por</h3>
+                <ul>
+                    <li>MFWP</li>
+                    
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        const socket = io();
+
+    socket.on('productosObtenidos', (productos) => {
+        productos.forEach((producto) => {
+            const divBox = document.createElement('div');
+            divBox.className = 'box';
+
+            const img = document.createElement('img');
+            img.src = producto.imagen; // Asegúrate de tener la propiedad 'imagen' en tu objeto de producto
+            img.alt = producto.nombre;
+
+            const divProductTxt = document.createElement('div');
+            divProductTxt.className = 'product-txt';
+
+            const h3 = document.createElement('h3');
+            h3.textContent = producto.nombre;
+
+            const p1 = document.createElement('p');
+            p1.textContent = producto.descripcion; // Asegúrate de tener la propiedad 'descripcion'
+
+            const p2 = document.createElement('p');
+            p2.className = 'precio';
+            p2.id = `precio-producto-${producto.id}`;
+            p2.textContent = `$${producto.precio.toFixed(2)}`;
+
+            const a = document.createElement('a');
+            a.href = '#'; // Asegúrate de poner el enlace correcto
+            a.className = 'agregar-carrito btn-3';
+            a.dataset.id = producto.id;
+            a.textContent = 'Agregar al carrito';
+
+            divProductTxt.appendChild(h3);
+            divProductTxt.appendChild(p1);
+            divProductTxt.appendChild(p2);
+            divProductTxt.appendChild(a);
+
+            divBox.appendChild(img);
+            divBox.appendChild(divProductTxt);
+
+            // Agrega el producto a cada lista sin restricción
+            document.querySelectorAll('.box-container').forEach((listaProductos) => {
+                listaProductos.appendChild(divBox.cloneNode(true)); // Usar cloneNode para evitar la reubicación del mismo elemento
+            });
+        });
+    });
+        socket.on('preciosActualizados', (productos) => {
+            const listaProductos = document.getElementById('lista-1');
+            listaProductos.innerHTML = '';
+
+            productos.forEach((producto) => {
+                const divBox = document.createElement('div');
+                divBox.className = 'box';
+
+                const img = document.createElement('img');
+                img.src = producto.imagen; // Asegúrate de tener la propiedad 'imagen' en tu objeto de producto
+                img.alt = producto.nombre;
+
+                const divProductTxt = document.createElement('div');
+                divProductTxt.className = 'product-txt';
+
+                const h3 = document.createElement('h3');
+                h3.textContent = producto.nombre;
+
+                const p1 = document.createElement('p');
+                p1.textContent = producto.descripcion; // Cambié 'calidad premium' por producto.descripcion, asegúrate de tener la propiedad 'descripcion'
+
+                const p2 = document.createElement('p');
+                p2.className = 'precio';
+                p2.id = `precio-producto-${producto.id}`;
+                p2.textContent = `$${producto.precio.toFixed(2)}`;
+
+                const a = document.createElement('a');
+                a.href = '#'; // Asegúrate de poner el enlace correcto
+                a.className = 'agregar-carrito btn-3';
+                a.dataset.id = producto.id;
+                a.textContent = 'Agregar al carrito';
+
+                divProductTxt.appendChild(h3);
+                divProductTxt.appendChild(p1);
+                divProductTxt.appendChild(p2);
+                divProductTxt.appendChild(a);
+
+                divBox.appendChild(img);
+                divBox.appendChild(divProductTxt);
+
+                listaProductos.appendChild(divBox);
+            });
+        });
+    </script>
+   
+    <div id="scrollTopBtn" title="Ir al inicio">&#9650;</div>
+</body>
+
+</html>

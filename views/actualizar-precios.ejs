@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Precios</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.js"></script>
+</head>
+<body>
+    <h1>Página de actualización de precios</h1>
+
+    <table border="1">
+        <tr>
+            <th>Producto</th>
+            <th>descripcion</th>
+            <th>Precio Actual</th>
+            <th>Nuevo Precio</th>
+            <th>Actualizar</th>
+        </tr>
+        <% productos.forEach(producto => { %>
+            <tr>
+                <td><%= producto.nombre %></td>
+                <td><%= producto.descripcion %></td>
+                <td id="precio-producto-<%= producto.id %>">$<%= producto.precio.toFixed(2) %></td>
+                <td><input type="text" data-id="<%= producto.id %>" class="nuevo-precio"></td>
+                <td><button onclick="actualizarPrecio('<%= producto.id %>')">Actualizar</button></td>
+            </tr>
+        <% }); %>
+    </table>
+
+    <!-- ... (código HTML existente) -->
+
+    <script>
+        function actualizarPrecio(id) {
+            const nuevoPrecioInput = document.querySelector(`.nuevo-precio[data-id="${id}"]`);
+            const nuevoPrecio = nuevoPrecioInput.value;
+        
+            // Aquí debes enviar el id y el nuevoPrecio al servidor
+            // Puedes usar fetch o axios para enviar una solicitud POST al servidor
+        
+            // Ejemplo con fetch:
+            fetch('/actualizar-precios', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ [id]: nuevoPrecio }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data.mensaje);
+            })
+            .catch(error => {
+                console.error('Error al actualizar precio:', error);
+            });
+        }
+    </script>
+    
+</body>
+</html>

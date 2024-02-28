@@ -1,0 +1,877 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Roboto+Condensed:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+.container {
+    max-width: 1200px; /* Limita el ancho del contenedor para mejorar la legibilidad */
+    margin: 0 auto; /* Centra el contenedor en la página */
+}
+
+/* Estilos para el menú principal */
+.menu-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Centra los elementos del menú horizontalmente */
+}
+
+.menu-list li {
+    margin: 0 15px;
+}
+
+.menu-list a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.menu-list a:hover {
+    color: #ff6347; /* Cambia el color al pasar el ratón para resaltar */
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #EFF3F4;
+    padding: 130px 0 0 0;
+    position: relative; /* Añade posición relativa */
+    z-index: 100; /* Asegura que el z-index sea mayor que otras secciones */
+}
+
+
+.menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 2; /* Asegura que el menú tenga un z-index mayor que el contenido debajo */
+}
+
+.logo {
+    font-size: 25px;
+    color: #9bce21;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.menu .navbar ul li {
+    position: relative;
+    float: left;
+}
+
+.menu .navbar ul li a {
+    font-size: 18px;
+    padding: 20px;
+    color: #111419;
+    display: block;
+}
+
+.menu .navbar ul li a:hover {
+    color: #9bce21;
+}
+
+#menu {
+    display: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.menu-icono {
+    width: 25px;
+}
+
+.menu label {
+    cursor: pointer;
+    display: none;
+}
+
+.submenu {
+    position: relative;
+}
+
+.submenu #carrito {
+    display: none;
+}
+
+.submenu:hover #carrito {
+    display: block;
+    position: absolute;
+    right: 0;
+    backdrop-filter: blur(10px);
+    top: 100%;
+    z-index: 1;
+    background-color: #eef9f776;
+    padding: 20px;
+    min-width: 400px;
+}
+
+table {
+    width: 100%;
+}
+
+th, td {
+    color: #FFFFFF;
+}
+
+.borrar {
+    background-color: #9bce21;
+    border-radius: 50%;
+    padding: 5px 10px;
+    color: #FFFFFF;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+/* Estilo para los botones en el carrito */
+
+#total {
+    font-size: 1.5em; /* Tamaño de fuente ajustado */
+    color: #450fce; /* Color verde como ejemplo, puedes ajustar según tus preferencias */
+}
+
+/* Estilo para los títulos con fondo gris */
+#lista-carrito th {
+    background-color: #f3f3f3; /* Color de fondo gris oscuro como ejemplo, puedes ajustar según tus preferencias */
+    color: #c4bfbf; /* Color de texto blanco */
+    padding: 10px; /* Espaciado interno ajustado */
+}
+
+/* Estilo para las filas en el popup de resumen */
+#resumen-popup table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+#resumen-popup th,
+#resumen-popup td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+/* Ajuste de estilo para el botón "Aceptar Compra" y "Cancelar Compra" */
+#aceptar-compra-btn,
+#cancelar-compra-btn {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #4CAF50; /* Color verde como ejemplo, puedes ajustar según tus preferencias */
+    color: #fff; /* Color de texto blanco */
+    border: none;
+    cursor: pointer;
+}
+
+#aceptar-compra-btn:hover,
+#cancelar-compra-btn:hover {
+    background-color: #45a049; /* Color verde más oscuro en el hover */
+}
+#lista-carrito .incrementar,
+#lista-carrito .decrementar {
+    display: inline-block;
+    background-color: #4caf50; /* Color de fondo verde */
+    color: #fff; /* Color del texto blanco */
+    border: none;
+    padding: 8px 16px; /* Ajusta el espacio interno */
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px; /* Bordes redondeados */
+    transition: background-color 0.3s; /* Efecto de transición para el cambio de color de fondo */
+}
+
+#lista-carrito .incrementar:hover,
+#lista-carrito .decrementar:hover {
+    background-color: #45a049; /* Cambio de color al pasar el ratón sobre el botón */
+}
+
+#lista-carrito table {
+    width: 100%;
+    border-collapse: collapse;
+}
+#img-carrito {
+    width: 50px; /* Ajusta el tamaño según tus preferencias */
+}
+
+
+#lista-carrito th, #lista-carrito td {
+    border: 1px solid #dddddd; /* Borde de la tabla */
+    padding: 10px;
+    text-align: center;
+    color: #181717;
+}
+
+#lista-carrito th {
+    background-color: #f2f2f2; /* Color de fondo del encabezado de la tabla */
+}
+
+#lista-carrito .incrementar,
+#lista-carrito .decrementar {
+    display: inline-block;
+    background-color: #c6c6c6; /* Color de fondo verde */
+    color: #d62124; /* Color del texto blanco */
+    border: none;
+    padding: 8px 16px; /* Ajusta el espacio interno */
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px; /* Bordes redondeados */
+    transition: background-color 0.3s; /* Efecto de transición para el cambio de color de fondo */
+}
+
+#lista-carrito .incrementar:hover,
+#lista-carrito .decrementar:hover {
+    background-color: #5445a0; /* Cambio de color al pasar el ratón sobre el botón */
+}
+/* Estilo para las imágenes en el carrito */
+#lista-carrito img {
+    max-height: 60px; /* Altura máxima ajustada según tus preferencias */
+    width: auto; /* Ancho automático para mantener la proporción original */
+}
+
+/* Estilo para las imágenes en el popup de resumen */
+#resumen-popup img {
+    max-height: 40px; /* Altura máxima ajustada según tus preferencias */
+    width: auto; /* Ancho automático para mantener la proporción original */
+}
+
+
+#resumen-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ce6464; /* Color de fondo del popup */
+    color: #000000; /* Color del texto */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5); /* Sombra para resaltar el popup */
+    z-index: 1000; /* Asegúrate de que el popup esté en la parte superior */
+}
+
+#resumen-popup table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+#resumen-popup table, #resumen-popup th, #resumen-popup td {
+    border: 1px solid #dddddd; /* Borde de la tabla */
+}
+
+#resumen-popup th, #resumen-popup td {
+    padding: 10px;
+    text-align: center;
+}
+
+#resumen-popup th {
+    background-color: #564141; /* Color de fondo del encabezado de la tabla */
+}
+
+#resumen-popup button {
+    background-color: #3498db; /* Color de fondo del botón */
+    color: #ffffff; /* Color del texto del botón */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#resumen-popup button:hover {
+    background-color: #2980b9; /* Cambio de color al pasar el ratón sobre el botón */
+}
+
+#aceptar-compra-btn {
+    display: block;
+    margin-top: 10px;
+    background-color: #9bce21;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#aceptar-compra-btn:hover {
+    background-color: #13462E;
+}
+
+#vaciar-carrito {
+    background-color: #ffcccc;
+    color: #333;
+    font-size: 12px;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#nombre-cliente {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+#enviar-pedido {
+    font-size: 14px;
+    padding: 8px 16px;
+    background-color: #9bce21;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-2, .btn-3 {
+    background-color: #9bce21;
+    margin-top: 50px;
+    display: inline-block;
+    padding: 11px 35px;
+    border-radius: 25px;
+    color: #FFFFFF;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-2:hover, .btn-3:hover, .btn-1:hover {
+    background-color: #13462E;
+}
+
+.btn-3 {
+    margin: 0;
+    padding: 8px 25px;
+    border-radius: 5px;
+}
+
+/* ... El resto de tus estilos ... */
+
+
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-txt {
+    flex-basis: 50%;
+    margin-right: 25px;
+}
+
+span {
+    color: #9bce21;
+    font-size: 17px;
+    font-weight: 600;
+    display: block; 
+    margin-bottom: 25px;
+}
+
+.header-txt h1 {
+    font-size: 70px;
+    text-transform: capitalize;
+    line-height: 1;
+    color: #111419;
+    margin-bottom: 35px;
+}
+
+.header-txt p {
+    font-size: 17px;
+    color: #515557;
+    margin-bottom: 35px;
+}
+
+.butons {
+    display: flex;
+}
+
+.btn-1 {
+    display: inline-block;
+    padding: 13px 25px;
+    background-color: #9bce21;
+    margin-right: 20px;
+    color: #FFFFFF;
+    text-transform: capitalize;
+    margin-bottom: 100px;
+}
+
+.header-img {
+    flex-basis: 50%;
+    text-align: center;
+}
+
+.header-img img {
+    height: 550px;
+}
+
+.oferts {
+    padding: 100px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ofert-1 {
+    flex-basis: calc(33.3% - 20px);
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.b1 {
+    background-color: #91ddd8;
+}
+
+.b2 {
+    background-color: #fa9824;
+}
+
+.b3 {
+    background-color: #9bce21;
+}
+
+.ofert-txt {
+    flex-basis: 50%;
+}
+
+.ofert-txt h3 {
+    color: #FFFFFF;
+    font-size: 20px;
+}
+
+.ofert-txt a {
+    color: #FFFFFF;
+}
+
+.ofert-img {
+    flex-basis: 50%;
+}
+
+.products {
+    padding: 0 0 50px 0;
+    text-align: center;
+}
+
+h2 {
+    font-size: 3em;
+    color: #4CAF50; /* Mismo verde que el fondo del botón */
+    background: linear-gradient(180deg, #fff, #e7e6e6);
+    margin-bottom: 40px;
+    margin-top: 30px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 15px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 15px; /* Añadido: Radio de borde para esquinas redondeadas */
+}
+
+
+
+
+
+.box-container {
+    margin-top: 55px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.box {
+    border-top: 2px solid #9bce21;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    background-color: #f6fafb;
+    display: none;
+}
+
+.box {
+    display: inline-block;
+}
+
+.box img {
+    height: 200px;
+}
+
+.product-txt h3 {
+    font-size: 20px;
+    color: #e49e76;
+    margin-bottom: 10px;
+}
+
+.product-txt p {
+    margin-bottom: 25px;
+    color: #515557;
+}
+
+.precio {
+    font-size: 17px;
+    font-weight: 700;
+    color: #ff9100 !important;
+}
+
+.btn-2,
+.btn-3 {
+    background-color: #9bce21;
+    margin-top: 50px;
+    display: inline-block;
+    padding: 11px 35px;
+    border-radius: 25px;
+    color: #FFFFFF;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-2:hover,
+.btn-3:hover,
+.btn-1:hover {
+    background-color: #13462E;
+}
+
+.btn-3 {
+    margin: 0;
+    padding: 8px 25px;
+    border-radius: 5px;
+}
+
+.testimonial {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.testimonal-content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.testimonial-1 {
+    flex-basis: calc(50% -20px);
+    padding: 50px;
+    text-align: left;
+    background-color: #f6fafb;
+    border-top: 5px solid #9bce21;
+}
+
+.testimonial-1 img {
+    width: 100px;
+}
+
+.testimonial-1 h4 {
+    font-size: 17px;
+    color: #111419;
+}
+
+.testimonial-1 p {
+    color: #515557;
+    margin-bottom: 25px;
+}
+
+/* Estilos generales para el footer */
+.footer {
+    background-color: #f4f4f4; /* Puedes cambiar el color de fondo según tus preferencias */
+    padding: 20px 0; /* Agrega espacio alrededor del contenido del footer */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between; /* Distribuye las secciones a lo largo del ancho del footer */
+}
+
+/* Estilos específicos para cada sección del footer */
+.footer-section {
+    max-width: 500px; /* Ajusta el ancho máximo según tus preferencias */
+}
+
+.footer-section h3 {
+    color: #333; /* Cambia el color del título si es necesario */
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section li {
+    margin-bottom: 10px; /* Espacio entre elementos de la lista */
+}
+
+/* Puedes agregar más estilos según sea necesario */
+
+
+.link h3 {
+    color: #FFFFFF;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.link a {
+    color: #f6fafb;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.link a:hover {
+    color: #9bce21;
+}
+
+#nombre-cliente {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+#enviar-pedido {
+    font-size: 14px;
+    padding: 8px 16px;
+}
+
+/* Ajusta el estilo del botón para borrar el carrito */
+#vaciar-carrito {
+    background-color: #ffcccc;
+    color: #333;
+    font-size: 12px;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+/* Elimina la lógica :hover para #carrito */
+#carrito {
+    display: none;
+}
+
+/* Elimina el efecto de desenfoque en el carrito abierto */
+.submenu .carrito-abierto {
+    display: block;
+    position: absolute;
+    right: 0;
+    /* backdrop-filter: blur(10px); Eliminado */
+    top: 100%;
+    z-index: 1;
+    background-color: #eef9f776;
+    padding: 20px;
+    min-width: 400px;
+}
+.logo-container {
+    /* Establece la imagen del logo como fondo */
+    background: url('img/Pan.png') no-repeat center center;
+    /* Ajusta el tamaño del contenedor del logo */
+    width: 200px; /* ajusta según sea necesario */
+    height: 200px; /* ajusta según sea necesario */
+    /* Establece el tamaño y el comportamiento del fondo de la imagen */
+    background-size: contain;
+}
+/* Estilos para el menú desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    padding: 15px;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    color: #333;
+    font-size: px; /* Ajusta el tamaño de la fuente según tus preferencias */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Mostrar el menú desplegable al pasar el ratón sobre el botón */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+#scrollTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    display: none;
+}
+
+#scrollTopBtn:hover {
+    background-color: #0056b3;
+}
+@media only screen and (max-width: 767px) {
+
+    .header {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+        padding-top: 70%; /* Ajusta el espacio superior según sea necesario */
+        
+        
+    }
+    
+
+    .header-content {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column; /* Cambia la dirección del flexbox para apilar elementos verticalmente */
+        align-items: center; /* Centra los elementos dentro del contenedor */
+        text-align: center; /* Centra el texto */
+        width: 90%;
+        height: fit-content;
+       
+       
+        
+    }
+
+    .header-txt {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+        margin-right: 0; /* Elimina el margen derecho para ajustar a la pantalla completa */
+        width: 90%;
+    }
+
+    /* Ajusta otros estilos según sea necesario */
+
+
+    
+    .menu-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+        flex-direction:column ;
+        align-items: center;
+        width: 90%;
+        height: 10%;
+        
+    }
+
+    .menu-list li {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+        margin: 10px 0;
+        height: 10%;
+    }
+
+    .menu-list a {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+        font-size: 1em;
+        height: 10%;
+    }
+
+    .navbar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+        background-color: #fff;
+        padding: 5px;
+        text-align: center;
+    }
+
+    .navbar ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+        padding: 0;
+        height: 10%;
+    }
+
+    .navbar li {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+        margin: 5px 0;
+    }
+
+    .navbar a {
+        
+        font-size: 1em;
+    }
+
+    #carrito {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        position: static;
+    }
+
+    #lista-carrito {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        background-color: #eef9f776;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+        display: none;
+        z-index: 2;
+    }
+
+    #resumen-popup {
+        max-height: 70vh;
+        overflow-y: auto;
+        margin-top: 10px;
+    }
+
+    /* Otros estilos específicos para pantallas pequeñas según tus necesidades */
+}
