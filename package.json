@@ -1,11 +1,20 @@
 {
   "name": "pancho-fiesta",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "repository": "https://github.com/javier06github/Panchofiesta.git",
   "author": "javiergit <licrissojavier@gmail.com>",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.1.2"
+  },
+
   "devDependencies": {
     "nodemon": "^3.1.0"
   }
