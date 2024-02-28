@@ -25,8 +25,8 @@ app.set('views', path.join(__dirname, 'views'));
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'licrissojavier@gmail.com',
-        pass: 'ktey xhsf zixj blto',
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_PASSWORD,
     },
 });
 
