@@ -1,0 +1,12 @@
+{
+  "name": "pancho-fiesta",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/javier06github/Panchofiesta.git",
+  "author": "javiergit <licrissojavier@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
