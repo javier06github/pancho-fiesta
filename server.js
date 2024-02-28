@@ -6,7 +6,7 @@ const io = require('socket.io')(http);
 const bodyParser = require('body-parser');
 const path = require('path');
 const { getProductos, actualizarPrecio } = require('./views/productos');  // Importamos el módulo de productos
-
+const ejs = require('ejs');
 const nodemailer = require('nodemailer');
 
 const usuarios = [
