@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const app = express();
 const http = require('http').Server(app);
@@ -171,7 +172,9 @@ io.on('connection', (socket) => {
     });
 });
 
+const PORT =process.env.PORT 
+
 // Iniciar el servidor en el puerto 3000
-http.listen(3000, () => {
-    console.log('Servidor escuchando en el puerto 3000');
+http.listen(PORT,function ()  {
+    console.log('Servidor escuchando en el puerto 3000')
 });
