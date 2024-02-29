@@ -25,8 +25,8 @@ app.set('views', path.join(__dirname, 'views'));
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     host: "smtp.gmail.com",
-    port:465,
-     secure: true, // Usar SSL/TLS
+    port:587,
+     secure: false, // Usar SSL/TLS
     auth: {
         user: process.env.GMAIL_USER,
         pass: process.env.GMAIL_PASSWORD,
@@ -74,28 +74,30 @@ app.post('/enviar-correo', async (req, res) => {
             html: generarCorreoHTML(productos, nombre, email, telefono),
         };
 
-        transporter.sendMail(mailOptionsCliente, (errorCliente, infoCliente) => {
-            if (errorCliente) {
-                console.error('Error al enviar el correo al cliente:', errorCliente);
-                res.status(500).json({ mensaje: 'Error al enviar el resumen de la compra al cliente.' });
-            } else {
-                console.log('Correo al cliente enviado con éxito:', infoCliente.response);
+        try {
+            // Enviar correo al cliente
+            const infoCliente = await transporter.sendMail(mailOptionsCliente);
+            console.log('Correo al cliente enviado con éxito:', infoCliente.response);
 
-                transporter.sendMail(mailOptionsNegocio, (errorNegocio, infoNegocio) => {
-                    if (errorNegocio) {
-                        console.error('Error al enviar el correo al negocio:', errorNegocio);
-                        res.status(500).json({ mensaje: 'Error al procesar el pedido.' });
-                    } else {
-                        console.log('Correo al negocio enviado con éxito:', infoNegocio.response);
-                        res.json({ mensaje: 'Pedido recibido con éxito.' });
-                    }
-                });
+            // Enviar correo al negocio
+            const infoNegocio = await transporter.sendMail(mailOptionsNegocio);
+            console.log('Correo al negocio enviado con éxito:', infoNegocio.response);
+
+            res.json({ mensaje: 'Pedido recibido con éxito.' });
+        } catch (error) {
+            console.error('Error al enviar correos:', error);
+
+            if (error.responseCode === 535) {
+                res.status(500).json({ mensaje: 'Error de autenticación. Verifica las credenciales del servidor de correo.' });
+            } else {
+                res.status(500).json({ mensaje: 'Error al procesar el pedido.' });
             }
-        });
+        }
     } else {
         res.status(400).json({ mensaje: 'Faltan datos del cliente o productos.' });
     }
 });
+
 
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
