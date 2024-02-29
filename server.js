@@ -22,7 +22,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-module.exports=transporter
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     host: "smtp.gmail.com",
@@ -35,8 +34,7 @@ const transporter = nodemailer.createTransport({
    
 });
 
-
-
+module.exports=transporter
 
 module.exports.getProductos = getProductos;
 
@@ -61,7 +59,6 @@ app.post('/actualizar-precios', (req, res) => {
 app.post('/enviar-correo', async (req, res) => {
     const { productos, nombre, email, telefono } = req.body;
 
-    
     if (productos && nombre && email && telefono) {
         const mailOptionsCliente = {
             from: 'licrissojavier@gmail.com',
@@ -76,19 +73,18 @@ app.post('/enviar-correo', async (req, res) => {
             subject: `Nuevo pedido en la tienda de cliente: ${nombre}`,
             html: generarCorreoHTML(productos, nombre, email, telefono),
         };
-        
 
         transporter.sendMail(mailOptionsCliente, (errorCliente, infoCliente) => {
             if (errorCliente) {
                 console.error('Error al enviar el correo al cliente:', errorCliente);
-                res.status(500).json({ mensaje: 'Error al enviar el resumen de la compra al cliente.', error: errorCliente });
+                res.status(500).json({ mensaje: 'Error al enviar el resumen de la compra al cliente.' });
             } else {
                 console.log('Correo al cliente enviado con éxito:', infoCliente.response);
-        
+
                 transporter.sendMail(mailOptionsNegocio, (errorNegocio, infoNegocio) => {
                     if (errorNegocio) {
                         console.error('Error al enviar el correo al negocio:', errorNegocio);
-                        res.status(500).json({ mensaje: 'Error al procesar el pedido.', error: errorNegocio });
+                        res.status(500).json({ mensaje: 'Error al procesar el pedido.' });
                     } else {
                         console.log('Correo al negocio enviado con éxito:', infoNegocio.response);
                         res.json({ mensaje: 'Pedido recibido con éxito.' });
