@@ -8,7 +8,7 @@ const path = require('path');
 const { getProductos, actualizarPrecio } = require('./views/productos');  // Importamos el módulo de productos
 const ejs = require('ejs');
 const nodemailer = require('nodemailer');
-
+const cors =require ("cors");
 const usuarios = [
     { username: 'dueño', password: 'contraseña123' },
     { username: 'nombreUsuario2', password: 'contraseña2' },
@@ -25,14 +25,18 @@ app.set('views', path.join(__dirname, 'views'));
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     host: "smtp.gmail.com",
-    port:587,
-     secure: false, // Usar SSL/TLS
+    port:465,
+     secure: true, // Usar SSL/TLS
     auth: {
         user: process.env.GMAIL_USER,
         pass: process.env.GMAIL_PASSWORD,
     },
    
 });
+transporter.verify()
+.then(() => console.log("gmail enviado ok"))
+.catch((error)=> console.error(error));
+
 module.exports=transporter
 
 module.exports.getProductos = getProductos;
