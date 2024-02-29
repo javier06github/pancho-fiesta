@@ -25,7 +25,7 @@ app.set('views', path.join(__dirname, 'views'));
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     host: "smtp.gmail.com",
-    port:587,
+    port:465,
      secure: false, // Usar SSL/TLS
     auth: {
         user: process.env.GMAIL_USER,
