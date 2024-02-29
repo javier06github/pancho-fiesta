@@ -24,13 +24,16 @@ app.set('views', path.join(__dirname, 'views'));
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
+    host: "smtp.gmail.com",
+    port:587,
+     secure: false, // Usar SSL/TLS
     auth: {
         user: process.env.GMAIL_USER,
         pass: process.env.GMAIL_PASSWORD,
     },
-    secure: true, // Usar SSL/TLS
-    debug: true,  // Modo de depuración
+   
 });
+module.exports=transporter
 
 module.exports.getProductos = getProductos;
 
