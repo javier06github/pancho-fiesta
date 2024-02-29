@@ -8,12 +8,12 @@ const path = require('path');
 const { getProductos, actualizarPrecio } = require('./views/productos');  // Importamos el módulo de productos
 const ejs = require('ejs');
 const nodemailer = require('nodemailer');
-const cors =require ("cors");
 const usuarios = [
     { username: 'dueño', password: 'contraseña123' },
     { username: 'nombreUsuario2', password: 'contraseña2' },
     // Agrega más usuarios según sea necesario
 ];
+module.exports=transporter
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
@@ -37,7 +37,6 @@ transporter.verify()
 .then(() => console.log("gmail enviado ok"))
 .catch((error)=> console.error(error));
 
-module.exports=transporter
 
 module.exports.getProductos = getProductos;
 
