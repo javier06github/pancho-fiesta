@@ -22,6 +22,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+
+
 app.use(cors({
    github: function (origin, callback) {
       // Verifica si el origen está permitido
@@ -40,8 +42,8 @@ let transporter = nodemailer.createTransport({
     port:465,
      secure: true, // Usar SSL/TLS
     auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_PASSWORD,
+        user: 'licrissojavier@gmail.com',
+        pass: 'ktey xhsf zixj blto',
     },
    
 });
@@ -85,13 +87,12 @@ app.post('/enviar-correo', async (req, res) => {
             subject: `Nuevo pedido en la tienda de cliente: ${nombre}`,
             html: generarCorreoHTML(productos, nombre, email, telefono),
         };
-
+        console.log('Antes de enviar correo al cliente');
         try {
             // Enviar correo al cliente
-            console.log('Antes de enviar correo al cliente');
             const infoCliente = await transporter.sendMail(mailOptionsCliente);
             console.log('Correo al cliente enviado con éxito:', infoCliente.response);
-            console.log('Después de enviar correo al cliente');
+           
 
             // Enviar correo al negocio
             console.log('Antes de enviar correo al negocio');
