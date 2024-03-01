@@ -407,13 +407,13 @@ async function enviarPedidoAlServidor(productosCarrito, datosCliente) {
     console.log('Datos que se envían al servidor:', data);
 
     try {
-        const respuestaServidor = await fetch('http://localhost:3000/enviar-correo', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        });
+        const respuestaServidor = await fetch('https://pancho-fiesta.onrender.com/enviar-correo', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+});
 
         if (respuestaServidor.ok) {
             console.log('Correo enviado con éxito');
