@@ -104,13 +104,16 @@ app.post('/enviar-correo', async (req, res) => {
             console.error('Error al enviar correos:', error);
 
             if (error.responseCode === 535) {
+                console.error('Error de autenticación. Verifica las credenciales del servidor de correo.');
+                
                 res.status(500).json({ mensaje: 'Error de autenticación. Verifica las credenciales del servidor de correo.' });
             } else {
                 res.status(500).json({ mensaje: 'Error al procesar el pedido.' });
             }
         }
     } else {
-        res.status(400).json({ mensaje: 'Faltan datos del cliente o productos.' });
+        console.error('Error al procesar el pedido:', error);
+        res.status(500).json({ mensaje: 'Error al procesar el pedido. Consulta los registros para obtener más información.' });
     }
 });
 
