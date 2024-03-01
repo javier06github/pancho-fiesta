@@ -406,25 +406,28 @@ async function enviarPedidoAlServidor(productosCarrito, datosCliente) {
 
     console.log('Datos que se envían al servidor:', data);
 
-    const respuestaServidor = await fetch('http://localhost:3000/enviar-correo', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-    });
+    try {
+        const respuestaServidor = await fetch('http://localhost:3000/enviar-correo', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        });
 
-    if (respuestaServidor.ok) {
-        // Si la respuesta del servidor es exitosa, muestra un mensaje de éxito
-        alert('Pedido enviado con éxito. ¡Gracias por su compra!');
-        vaciarCarrito();
-    } else {
-        console.error('Error al enviar el pedido:', respuestaServidor.statusText);
-        // Muestra un mensaje de error si la respuesta del servidor no es exitosa
+        if (respuestaServidor.ok) {
+            console.log('Correo enviado con éxito');
+            alert('Pedido enviado con éxito. ¡Gracias por su compra!');
+            vaciarCarrito();
+        } else {
+            console.error('Error al enviar el pedido:', respuestaServidor.statusText);
+            alert('Error al enviar el pedido. Por favor, inténtelo de nuevo más tarde.');
+        }
+    } catch (error) {
+        console.error('Error al enviar el pedido:', error);
         alert('Error al enviar el pedido. Por favor, inténtelo de nuevo más tarde.');
     }
 }
-
 
 
 
