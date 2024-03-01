@@ -8,13 +8,13 @@ const path = require('path');
 const { getProductos, actualizarPrecio } = require('./views/productos');  // Importamos el módulo de productos
 const ejs = require('ejs');
 const nodemailer = require('nodemailer');
-
+const cors = require('cors');
 const usuarios = [
     { username: 'dueño', password: 'contraseña123' },
     { username: 'nombreUsuario2', password: 'contraseña2' },
     // Agrega más usuarios según sea necesario
 ];
-
+const allowedOrigins = ['https://docs.render.com'];
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -22,11 +22,23 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-const transporter = nodemailer.createTransport({
+app.use(cors({
+   github: function (origin, callback) {
+      // Verifica si el origen está permitido
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    credentials: true, // Habilita el intercambio de credenciales (cookies, encabezados de autorización, etc.)
+  }));
+
+let transporter = nodemailer.createTransport({
     service: 'gmail',
     host: "smtp.gmail.com",
     port:465,
-     secure: false, // Usar SSL/TLS
+     secure: true, // Usar SSL/TLS
     auth: {
         user: process.env.GMAIL_USER,
         pass: process.env.GMAIL_PASSWORD,
@@ -76,12 +88,16 @@ app.post('/enviar-correo', async (req, res) => {
 
         try {
             // Enviar correo al cliente
+            console.log('Antes de enviar correo al cliente');
             const infoCliente = await transporter.sendMail(mailOptionsCliente);
             console.log('Correo al cliente enviado con éxito:', infoCliente.response);
+            console.log('Después de enviar correo al cliente');
 
             // Enviar correo al negocio
+            console.log('Antes de enviar correo al negocio');
             const infoNegocio = await transporter.sendMail(mailOptionsNegocio);
             console.log('Correo al negocio enviado con éxito:', infoNegocio.response);
+            console.log('Después de enviar correo al negocio');
 
             res.json({ mensaje: 'Pedido recibido con éxito.' });
         } catch (error) {

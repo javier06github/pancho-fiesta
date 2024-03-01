@@ -4,13 +4,14 @@
   "main": "server.js",
   "repository": "https://github.com/javier06github/Panchofiesta.git",
   "author": "javiergit <licrissojavier@gmail.com>",
-  "license": "",
+  "license": "MIT",
   "private": false,
   "scripts": {
     "dev": "nodemon server.js",
     "start": "nodemon server.js"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "ejs": "^3.1.9",
     "express": "^4.17.1",
     "nodemailer": "^6.9.10",
