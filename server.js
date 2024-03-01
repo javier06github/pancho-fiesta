@@ -71,28 +71,27 @@ app.post('/actualizar-precios', (req, res) => {
 });
 
 app.post('/enviar-correo', async (req, res) => {
-    const { productos, nombre, email, telefono } = req.body;
+    try {
+        const { productos, nombre, email, telefono } = req.body;
 
-    if (productos && nombre && email && telefono) {
-        const mailOptionsCliente = {
-            from: 'licrissojavier@gmail.com',
-            to: email,
-            subject: 'Resumen de tu compra',
-            html: generarCorreoHTML(productos, nombre, email, telefono),
-        };
+        if (productos && nombre && email && telefono) {
+            const mailOptionsCliente = {
+                from: 'licrissojavier@gmail.com',
+                to: email,
+                subject: 'Resumen de tu compra',
+                html: generarCorreoHTML(productos, nombre, email, telefono),
+            };
 
-        const mailOptionsNegocio = {
-            from: 'licrissojavier@gmail.com',
-            to: 'licrissojavier@gmail.com',
-            subject: `Nuevo pedido en la tienda de cliente: ${nombre}`,
-            html: generarCorreoHTML(productos, nombre, email, telefono),
-        };
-        console.log('Antes de enviar correo al cliente');
-        try {
-            // Enviar correo al cliente
+            const mailOptionsNegocio = {
+                from: 'licrissojavier@gmail.com',
+                to: 'licrissojavier@gmail.com',
+                subject: `Nuevo pedido en la tienda de cliente: ${nombre}`,
+                html: generarCorreoHTML(productos, nombre, email, telefono),
+            };
+
+            console.log('Antes de enviar correo al cliente');
             const infoCliente = await transporter.sendMail(mailOptionsCliente);
             console.log('Correo al cliente enviado con éxito:', infoCliente.response);
-           
 
             // Enviar correo al negocio
             console.log('Antes de enviar correo al negocio');
@@ -101,23 +100,22 @@ app.post('/enviar-correo', async (req, res) => {
             console.log('Después de enviar correo al negocio');
 
             res.json({ mensaje: 'Pedido recibido con éxito.' });
-        } catch (error) {
-            console.error('Error al enviar correos:', error);
-
-            if (error.responseCode === 535) {
-                console.error('Error de autenticación. Verifica las credenciales del servidor de correo.');
-                
-                res.status(500).json({ mensaje: 'Error de autenticación. Verifica las credenciales del servidor de correo.' });
-            } else {
-                res.status(500).json({ mensaje: 'Error al procesar el pedido.' });
-            }
+        } else {
+            console.error('Error al procesar el pedido: Faltan datos del cliente o productos.');
+            res.status(400).json({ mensaje: 'Faltan datos del cliente o productos.' });
         }
-    } else {
-        console.error('Error al procesar el pedido:', error);
-        res.status(500).json({ mensaje: 'Error al procesar el pedido. Consulta los registros para obtener más información.' });
+    } catch (error) {
+        console.error('Error al enviar correos:', error);
+
+        if (error.responseCode === 535) {
+            console.error('Error de autenticación. Verifica las credenciales del servidor de correo.');
+            res.status(500).json({ mensaje: 'Error de autenticación. Verifica las credenciales del servidor de correo.' });
+        } else {
+            console.error('Error al procesar el pedido:', error);
+            res.status(500).json({ mensaje: 'Error al procesar el pedido. Consulta los registros para obtener más información.' });
+        }
     }
 });
-
 
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
