@@ -1,7 +1,5 @@
 let carritoProductos = [];
 
-
-
 const carrito = document.getElementById('carrito');
 const elementos1 = document.getElementById('lista-1');
 const lista = document.querySelector('#lista-carrito tbody');
@@ -112,7 +110,15 @@ enviarPedidoBtn.addEventListener('click', async function () {
 
 function cargarEventListeners(idSeccion) {
     const seccion = document.getElementById(idSeccion);
-    seccion.addEventListener('click', comprarElemento);
+    seccion.addEventListener('click', function (event) {
+        const botonEliminar = event.target.closest('.borrar');
+
+        if (botonEliminar) {
+            eliminarElemento(event, botonEliminar);
+        } else {
+            comprarElemento(event);
+        }
+    });
 
     // Seleccionar el icono del carrito
     const iconoCarrito = document.querySelector('#carrito');
@@ -141,7 +147,6 @@ function cargarEventListeners(idSeccion) {
         event.stopPropagation();
     });
 }
-
 
 
     function comprarElemento(e) {
@@ -185,27 +190,27 @@ function insertarCarrito(elemento) {
     const row = document.createElement('tr');
     row.setAttribute('data-id', elemento.id);
     row.innerHTML = `
-    <td>
-        <img src="${elemento.imagen}" width=100 height=150px>
-    </td>
-    <td>
-        ${elemento.nombre}
-        <p>${elemento.descripcion}</p>
-    </td>
-    <td>
-        ${elemento.precio.toFixed(2)} $
-    </td>
-    <td>
-        <button class="decrementar">-</button>
-        <span class="cantidad">${elemento.cantidad}</span>
-        <button class="incrementar">+</button>
-    </td>
-    <td>
-        <span class="total">${(elemento.precio * elemento.cantidad).toFixed(2)} $</span>
-    </td>
-    <td>
-        <a href="#" class="borrar" data-id="${elemento.id}">X</a>
-    </td>
+        <td>
+            <img src="${elemento.imagen}" width=100 height=150px>
+        </td>
+        <td>
+            ${elemento.nombre}
+            <p>${elemento.descripcion}</p>
+        </td>
+        <td>
+            ${elemento.precio.toFixed(2)} $
+        </td>
+        <td>
+            <button class="decrementar">-</button>
+            <span class="cantidad">${elemento.cantidad}</span>
+            <button class="incrementar">+</button>
+        </td>
+        <td>
+            <span class="total">${(elemento.precio * elemento.cantidad).toFixed(2)} $</span>
+        </td>
+        <td>
+            <button class="borrar" data-id="${elemento.id}">&#10006;</button>
+        </td>
     `;
 
     lista.appendChild(row);
@@ -218,6 +223,11 @@ function insertarCarrito(elemento) {
     const botonDecrementar = row.querySelector('.decrementar');
     botonDecrementar.addEventListener('click', function () {
         decrementarCantidad(elemento.id);
+    });
+
+    const botonBorrar = row.querySelector('.borrar');
+    botonBorrar.addEventListener('click', function () {
+        eliminarElemento(elemento.id);
     });
 
     actualizarTotal();
@@ -255,18 +265,20 @@ function actualizarTotal() {
     document.getElementById('total').textContent = totalCompra.toFixed(2) + ' $';
 }
 
-function eliminarElemento(e) {
-    e.preventDefault();
-    if (e.target.classList.contains('borrar')) {
-        const elementoId = e.target.getAttribute('data-id');
-        const index = carritoProductos.findIndex((producto) => producto.id === elementoId);
+function eliminarElemento(id) {
+    const index = carritoProductos.findIndex((producto) => producto.id === id);
 
-        if (index !== -1) {
-            const totalProductoEliminado = carritoProductos[index].precio * carritoProductos[index].cantidad;
-            carritoProductos.splice(index, 1);
-            e.target.parentElement.parentElement.remove();
-            actualizarTotal(-totalProductoEliminado);
-        }
+    if (index !== -1) {
+        const totalProductoEliminado = carritoProductos[index].precio * carritoProductos[index].cantidad;
+        carritoProductos.splice(index, 1);
+
+        const filaEliminada = document.querySelector(`[data-id="${id}"]`);
+        filaEliminada.remove();
+
+        actualizarTotal(-totalProductoEliminado);
+        console.log('Elemento eliminado con éxito');
+    } else {
+        console.log('Elemento no encontrado en el carrito');
     }
 }
 
@@ -545,4 +557,32 @@ document.addEventListener("DOMContentLoaded", function () {
 function toggleCarrito() {
     var carrito = document.getElementById('carrito');
     carrito.style.display = (carrito.style.display === 'none' || carrito.style.display === '') ? 'block' : 'none';
+}
+function actualizarFila(index) {
+    const filaExistente = document.querySelector(`[data-id="${carritoProductos[index].id}"]`);
+    filaExistente.querySelector('.cantidad').textContent = carritoProductos[index].cantidad;
+    filaExistente.querySelector('.total').textContent = (carritoProductos[index].precio * carritoProductos[index].cantidad).toFixed(2) + ' $';
+    actualizarTotal();
+}
+
+function eliminarElemento(id) {
+    const index = carritoProductos.findIndex((producto) => producto.id === id);
+
+    if (index !== -1) {
+        const totalProductoEliminado = carritoProductos[index].precio * carritoProductos[index].cantidad;
+        carritoProductos.splice(index, 1);
+
+        const filaEliminada = document.querySelector(`[data-id="${id}"]`);
+        filaEliminada.remove();
+
+        actualizarTotal(-totalProductoEliminado);
+        console.log('Elemento eliminado con éxito');
+    } else {
+        console.log('Elemento no encontrado en el carrito');
+    }
+    function abrirWhatsApp() {
+        window.open("https://wa.me/+5491157136759", "_blank");
+        // Reemplaza 'TUNUMERO' con tu número de WhatsApp, incluyendo el código del país.
+       
+    }
 }

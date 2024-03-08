@@ -9,23 +9,27 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-}
-.container {
-    max-width: 1200px; /* Limita el ancho del contenedor para mejorar la legibilidad */
-    margin: 0 auto; /* Centra el contenedor en la página */
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
 
-/* Estilos para el menú principal */
+.container {
+    max-width: 1200px;
+    margin: 2 auto;
+    width: 90%;
+    margin: 0 auto;
+}
+
 .menu-list {
-    list-style: none;
-    padding: 0;
     display: flex;
-    justify-content: center; /* Centra los elementos del menú horizontalmente */
+    flex-wrap: wrap;
+    margin: 5%;
 }
 
 .menu-list li {
-    margin: 0 15px;
+    margin-bottom: 10px;
 }
 
 .menu-list a {
@@ -36,37 +40,23 @@ body {
 }
 
 .menu-list a:hover {
-    color: #ff6347; /* Cambia el color al pasar el ratón para resaltar */
+    color: #ff6347;
 }
 
 img {
     max-width: 100%;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
+
 
 .header {
-    display: flex;
-    align-items: center;
-    background-color: #EFF3F4;
-    padding: 130px 0 0 0;
-    position: relative; /* Añade posición relativa */
-    z-index: 100; /* Asegura que el z-index sea mayor que otras secciones */
+    position: relative;
 }
 
-
 .menu {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    z-index: 2; /* Asegura que el menú tenga un z-index mayor que el contenido debajo */
+    align-items: center;
 }
 
 .logo {
@@ -74,6 +64,15 @@ img {
     color: #9bce21;
     text-transform: uppercase;
     font-weight: 800;
+}
+
+.logo-container {
+    width: 180px;
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
 }
 
 .menu .navbar ul li {
@@ -101,7 +100,7 @@ html {
 }
 
 .menu-icono {
-    width: 25px;
+    display: none;
 }
 
 .menu label {
@@ -115,22 +114,19 @@ html {
 
 .submenu #carrito {
     display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: 1;
+    background-color: #121414ed;
+    min-width: 100%;
+    max-width: 100vw;
+    padding: 20px;
+    background-color: #3d3c3fc8;
 }
 
 .submenu:hover #carrito {
     display: block;
-    position: absolute;
-    right: 0;
-    backdrop-filter: blur(10px);
-    top: 100%;
-    z-index: 1;
-    background-color: #eef9f776;
-    padding: 20px;
-    min-width: 400px;
-}
-
-table {
-    width: 100%;
 }
 
 th, td {
@@ -143,24 +139,36 @@ th, td {
     padding: 5px 10px;
     color: #FFFFFF;
     font-weight: 800;
-    cursor: pointer;
 }
-
-/* Estilo para los botones en el carrito */
 
 #total {
-    font-size: 1.5em; /* Tamaño de fuente ajustado */
-    color: #450fce; /* Color verde como ejemplo, puedes ajustar según tus preferencias */
+    font-size: 1.5em;
+    color: #f5f5f9f6;
 }
 
-/* Estilo para los títulos con fondo gris */
-#lista-carrito th {
-    background-color: #f3f3f3; /* Color de fondo gris oscuro como ejemplo, puedes ajustar según tus preferencias */
-    color: #c4bfbf; /* Color de texto blanco */
-    padding: 10px; /* Espaciado interno ajustado */
+#lista-carrito th{
+    padding: 8px;
+    text-align: left;
+    color: #FFFFFF;
+      justify-content: space-between; /* Agregado para alinear horizontalmente los elementos en las celdas */
+        align-items: center;
 }
 
-/* Estilo para las filas en el popup de resumen */
+
+#lista-carrito td {
+    padding: 8px;
+    text-align: left;
+    color: #FFFFFF;
+    justify-content: space-between; /* Agregado para alinear horizontalmente los elementos en las celdas */
+    align-items: center;
+    
+}
+
+#lista-carrito table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
 #resumen-popup table {
     width: 100%;
     margin-top: 20px;
@@ -173,94 +181,85 @@ th, td {
     text-align: left;
 }
 
-/* Ajuste de estilo para el botón "Aceptar Compra" y "Cancelar Compra" */
 #aceptar-compra-btn,
 #cancelar-compra-btn {
     margin-top: 10px;
     padding: 10px;
-    background-color: #4CAF50; /* Color verde como ejemplo, puedes ajustar según tus preferencias */
-    color: #fff; /* Color de texto blanco */
+    background-color: #4CAF50;
+    color: #fff;
     border: none;
     cursor: pointer;
 }
 
 #aceptar-compra-btn:hover,
 #cancelar-compra-btn:hover {
-    background-color: #45a049; /* Color verde más oscuro en el hover */
+    background-color: #45a049;
 }
+
 #lista-carrito .incrementar,
 #lista-carrito .decrementar {
     display: inline-block;
-    background-color: #4caf50; /* Color de fondo verde */
-    color: #fff; /* Color del texto blanco */
+    background-color: #4caf50;
+    color: #fff;
     border: none;
-    padding: 8px 16px; /* Ajusta el espacio interno */
+    padding: 8px 16px;
     text-align: center;
     text-decoration: none;
     font-size: 14px;
     margin: 4px 2px;
     cursor: pointer;
-    border-radius: 4px; /* Bordes redondeados */
-    transition: background-color 0.3s; /* Efecto de transición para el cambio de color de fondo */
+    border-radius: 4px;
 }
 
 #lista-carrito .incrementar:hover,
 #lista-carrito .decrementar:hover {
-    background-color: #45a049; /* Cambio de color al pasar el ratón sobre el botón */
+    background-color: #45a049;
 }
 
 #lista-carrito table {
     width: 100%;
     border-collapse: collapse;
 }
+
 #img-carrito {
-    width: 50px; /* Ajusta el tamaño según tus preferencias */
-}
-
-
-#lista-carrito th, #lista-carrito td {
-    border: 1px solid #dddddd; /* Borde de la tabla */
-    padding: 10px;
-    text-align: center;
-    color: #181717;
+    width: 120px;
+    padding-left: 10%;
 }
 
 #lista-carrito th {
-    background-color: #f2f2f2; /* Color de fondo del encabezado de la tabla */
+    background-color: #e04141;
 }
 
 #lista-carrito .incrementar,
 #lista-carrito .decrementar {
     display: inline-block;
-    background-color: #c6c6c6; /* Color de fondo verde */
-    color: #d62124; /* Color del texto blanco */
+    background-color: #c6c6c6;
+    color: #d62124;
     border: none;
-    padding: 8px 16px; /* Ajusta el espacio interno */
+    padding: 8px 16px;
     text-align: center;
     text-decoration: none;
     font-size: 14px;
     margin: 4px 2px;
     cursor: pointer;
-    border-radius: 4px; /* Bordes redondeados */
-    transition: background-color 0.3s; /* Efecto de transición para el cambio de color de fondo */
+    border-radius: 4px;
+    transition: background-color 0.3s;
 }
 
 #lista-carrito .incrementar:hover,
 #lista-carrito .decrementar:hover {
-    background-color: #5445a0; /* Cambio de color al pasar el ratón sobre el botón */
+    background-color: #5445a0;
 }
-/* Estilo para las imágenes en el carrito */
+
 #lista-carrito img {
-    max-height: 60px; /* Altura máxima ajustada según tus preferencias */
-    width: auto; /* Ancho automático para mantener la proporción original */
+    max-height: 80px;
+    width: 90%;
 }
 
-/* Estilo para las imágenes en el popup de resumen */
 #resumen-popup img {
-    max-height: 40px; /* Altura máxima ajustada según tus preferencias */
-    width: auto; /* Ancho automático para mantener la proporción original */
+    max-height: 40px;
+    width: auto;
 }
-
 
 #resumen-popup {
     display: none;
@@ -268,12 +267,12 @@ th, td {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #ce6464; /* Color de fondo del popup */
-    color: #000000; /* Color del texto */
+    background-color: #ce6464;
+    color: #000000;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5); /* Sombra para resaltar el popup */
-    z-index: 1000; /* Asegúrate de que el popup esté en la parte superior */
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
 }
 
 #resumen-popup table {
@@ -283,7 +282,7 @@ th, td {
 }
 
 #resumen-popup table, #resumen-popup th, #resumen-popup td {
-    border: 1px solid #dddddd; /* Borde de la tabla */
+    border: 1px solid #dddddd;
 }
 
 #resumen-popup th, #resumen-popup td {
@@ -292,12 +291,12 @@ th, td {
 }
 
 #resumen-popup th {
-    background-color: #564141; /* Color de fondo del encabezado de la tabla */
+    background-color: #564141;
 }
 
 #resumen-popup button {
-    background-color: #3498db; /* Color de fondo del botón */
-    color: #ffffff; /* Color del texto del botón */
+    background-color: #3498db;
+    color: #ffffff;
     border: none;
     padding: 10px 15px;
     border-radius: 5px;
@@ -306,7 +305,7 @@ th, td {
 }
 
 #resumen-popup button:hover {
-    background-color: #2980b9; /* Cambio de color al pasar el ratón sobre el botón */
+    background-color: #2980b9;
 }
 
 #aceptar-compra-btn {
@@ -374,26 +373,24 @@ th, td {
     border-radius: 5px;
 }
 
-/* ... El resto de tus estilos ... */
-
-
-
 .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-top: 50px;
+    flex-wrap: wrap;
 }
+
 
 .header-txt {
-    flex-basis: 50%;
-    margin-right: 25px;
+    flex-basis: 100%;
+    margin-bottom: 20px;
 }
-
 span {
-    color: #9bce21;
+    color: #fcfcfb;
     font-size: 17px;
     font-weight: 600;
-    display: block; 
+    display: block;
     margin-bottom: 25px;
 }
 
@@ -431,21 +428,21 @@ span {
 }
 
 .header-img img {
-    height: 550px;
+    max-width: 100%;
+    height: auto;
 }
 
 .oferts {
-    padding: 100px 0;
-    display: flex;
-    justify-content: space-between;
+    padding: 20px 0;
+    text-align: center;
 }
 
 .ofert-1 {
-    flex-basis: calc(33.3% - 20px);
-    padding: 10px 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 20px;
+    margin-bottom: 20px;
 }
 
 .b1 {
@@ -462,68 +459,67 @@ span {
 
 .ofert-txt {
     flex-basis: 50%;
+    padding: 0 20px;
 }
-
 .ofert-txt h3 {
-    color: #FFFFFF;
     font-size: 20px;
 }
+
 
 .ofert-txt a {
     color: #FFFFFF;
 }
 
-.ofert-img {
-    flex-basis: 50%;
+.ofert-img img {
+    max-width: 80%;
+    height: auto;
 }
 
 .products {
-    padding: 0 0 50px 0;
-    text-align: center;
+    padding: 20px 0;
 }
 
-h2 {
-    font-size: 3em;
-    color: #4CAF50; /* Mismo verde que el fondo del botón */
-    background: linear-gradient(180deg, #fff, #e7e6e6);
-    margin-bottom: 40px;
-    margin-top: 30px;
+h2.agregar-al-carrito {
+    margin-top: 10px;
+    padding: 10px 25px;
+    background-color: #9bce21;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
     text-align: center;
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    padding: 15px;
-    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    border-radius: 15px; /* Añadido: Radio de borde para esquinas redondeadas */
+    letter-spacing: 1px;
+    transition: background-color 0.3s;
 }
-
-
-
-
 
 .box-container {
-    margin-top: 55px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    padding: 10px;
+    transition: box-shadow 0.3s; /* Agregado para una transición suave en el cambio de sombra */
+}
+.box-container .box {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    padding: 10px;
+    transition: box-shadow 0.3s;
+    text-align: center;
+    overflow: hidden; /* Agregado para ocultar el desborde hacia arriba */
+    margin-top: 10px;
 }
 
-.box {
-    border-top: 2px solid #9bce21;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    background-color: #f6fafb;
-    display: none;
+
+.box-container .box:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.box {
-    display: inline-block;
-}
 
-.box img {
+.box-container img {
     height: 200px;
 }
 
@@ -531,6 +527,9 @@ h2 {
     font-size: 20px;
     color: #e49e76;
     margin-bottom: 10px;
+}
+.box-container:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .product-txt p {
@@ -570,8 +569,14 @@ h2 {
 }
 
 .testimonial {
-    padding: 100px 0;
-    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Agrega sombra al container */
+}
+
+.testimonial h2 {
+    text-align: center; /* Centra el título */
+    font-size: 24px; /* Ajusta el tamaño del título según sea necesario */
+    color: #333; /* Cambia el color del título */
 }
 
 .testimonal-content {
@@ -581,11 +586,8 @@ h2 {
 }
 
 .testimonial-1 {
-    flex-basis: calc(50% -20px);
-    padding: 50px;
-    text-align: left;
-    background-color: #f6fafb;
-    border-top: 5px solid #9bce21;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .testimonial-1 img {
@@ -602,24 +604,25 @@ h2 {
     margin-bottom: 25px;
 }
 
-/* Estilos generales para el footer */
 .footer {
-    background-color: #f4f4f4; /* Puedes cambiar el color de fondo según tus preferencias */
-    padding: 20px 0; /* Agrega espacio alrededor del contenido del footer */
+    background-color: #f5f5f5; /* Cambia el color de fondo a un gris más suave */
+    color: #333; /* Cambia el color del texto a negro o un tono más oscuro según sea necesario */
+    padding: 20px 0;
 }
+
 
 .footer-content {
     display: flex;
-    justify-content: space-between; /* Distribuye las secciones a lo largo del ancho del footer */
+    flex-wrap: wrap;
 }
 
-/* Estilos específicos para cada sección del footer */
 .footer-section {
-    max-width: 500px; /* Ajusta el ancho máximo según tus preferencias */
+    flex-basis: 100%;
+    margin-bottom: 20px;
 }
 
 .footer-section h3 {
-    color: #333; /* Cambia el color del título si es necesario */
+    color: #f40c0c; /* Cambia el color del título a un tono más suave */
 }
 
 .footer-section ul {
@@ -628,10 +631,16 @@ h2 {
 }
 
 .footer-section li {
-    margin-bottom: 10px; /* Espacio entre elementos de la lista */
+    margin-bottom: 10px;
+    color: #777; /* Cambia el color del texto de la lista a un tono más suave */
 }
-
-/* Puedes agregar más estilos según sea necesario */
+.footer-section a {
+    color: #009688; /* Cambia el color del enlace a un tono más llamativo */
+    text-decoration: none;
+}
+.footer-section a:hover {
+    text-decoration: underline;
+}
 
 
 .link h3 {
@@ -663,7 +672,6 @@ h2 {
     padding: 8px 16px;
 }
 
-/* Ajusta el estilo del botón para borrar el carrito */
 #vaciar-carrito {
     background-color: #ffcccc;
     color: #333;
@@ -672,36 +680,39 @@ h2 {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
-/* Elimina la lógica :hover para #carrito */
+
 #carrito {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Elimina el efecto de desenfoque en el carrito abierto */
+#carrito #lista-carrito {
+    width: 100%;
+    overflow-x: auto;
+}
+
+#carrito #lista-carrito table {
+    width: 100%;
+}
+
 .submenu .carrito-abierto {
     display: block;
     position: absolute;
     right: 0;
-    /* backdrop-filter: blur(10px); Eliminado */
     top: 100%;
     z-index: 1;
-    background-color: #eef9f776;
+    background-color: #3d4645a2;
     padding: 20px;
     min-width: 400px;
+    max-width: 100vw;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
 }
-.logo-container {
-    /* Establece la imagen del logo como fondo */
-    background: url('img/Pan.png') no-repeat center center;
-    /* Ajusta el tamaño del contenedor del logo */
-    width: 200px; /* ajusta según sea necesario */
-    height: 200px; /* ajusta según sea necesario */
-    /* Establece el tamaño y el comportamiento del fondo de la imagen */
-    background-size: contain;
-}
-/* Estilos para el menú desplegable */
+
 .dropdown {
     position: relative;
     display: inline-block;
+    max-width: 90%;
 }
 
 .dropdown-btn {
@@ -715,7 +726,7 @@ h2 {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 160px;
+    min-width: 90px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
@@ -725,153 +736,206 @@ h2 {
     padding: 8px;
     text-decoration: none;
     color: #333;
-    font-size: px; /* Ajusta el tamaño de la fuente según tus preferencias */
-    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    font-size: px;
+    white-space: nowrap;
 }
 
 .dropdown-content a:hover {
     background-color: #f1f1f1;
 }
 
-/* Mostrar el menú desplegable al pasar el ratón sobre el botón */
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
 #scrollTopBtn {
+    display: none;
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
+    background-color: #333;
+    color: white;
     padding: 10px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 18px;
-    display: none;
 }
 
 #scrollTopBtn:hover {
     background-color: #0056b3;
 }
-@media only screen and (max-width: 767px) {
+.header-txt {
+    flex-basis: calc(50% - 25px);
+    margin-right: 25px;
+}
 
-    .header {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1em;
-        padding-top: 70%; /* Ajusta el espacio superior según sea necesario */
-        
-        
-    }
-    
+.header-img {
+    flex-basis: calc(50% - 25px);
+    margin-left: 25px;
+}
 
-    .header-content {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column; /* Cambia la dirección del flexbox para apilar elementos verticalmente */
-        align-items: center; /* Centra los elementos dentro del contenedor */
-        text-align: center; /* Centra el texto */
-        width: 90%;
-        height: fit-content;
-       
-       
-        
+
+
+@media screen and (max-width: 480px) {
+    .submenu #carrito {
+        min-width: 100%;
+        max-width: 100vw;
+        padding: 20px;
+        background-color: #eef9f776;
     }
 
-    .header-txt {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1em;
-        margin-right: 0; /* Elimina el margen derecho para ajustar a la pantalla completa */
-        width: 90%;
+    #carrito #lista-carrito {
+        overflow-x: auto;
     }
 
-    /* Ajusta otros estilos según sea necesario */
-
-
-    
-    .menu-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1em;
-        flex-direction:column ;
-        align-items: center;
-        width: 90%;
-        height: 10%;
-        
+    #lista-carrito table {
+        width: 100%;
     }
 
-    .menu-list li {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1em;
-        margin: 10px 0;
-        height: 10%;
+    /* Estilo para las filas en el carrito */
+    #lista-carrito tr {
+        background-color: #ffffff;
     }
 
-    .menu-list a {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1em;
-        font-size: 1em;
-        height: 10%;
+    /* Estilo para las celdas en el carrito */
+    #lista-carrito td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        color: #ffffff; /* Color blanco para el texto en las celdas */
+        display: flex; /* Agregado para corregir el problema de diseño */
+        justify-content: space-between; /* Agregado para alinear horizontalmente los elementos en las celdas */
+        align-items: center; /* Agregado para alinear verticalmente los elementos en las celdas */
     }
 
-    .navbar {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1em;
-        background-color: #fff;
-        padding: 5px;
+    /* Estilo para las celdas de cantidad en el carrito */
+    #lista-carrito .cantidad {
+        text-align: center;
+        color: #ffffff; /* Color blanco para el texto en las celdas de cantidad */
+    }
+
+    /* Estilo para las celdas de botones en el carrito */
+    #lista-carrito .accion {
         text-align: center;
     }
 
-    .navbar ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1em;
-        padding: 0;
-        height: 10%;
+    /* Estilo para el total en el carrito */
+    #total {
+        font-size: 1.5em;
+        color: #fdfdfd;
+        margin-top: 10px;
     }
 
-    .navbar li {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1em;
-        margin: 5px 0;
-    }
-
-    .navbar a {
-        
-        font-size: 1em;
-    }
-
-    #carrito {
-        width: 100%;
+    /* Ajuste de estilo para el botón "Aceptar Compra" y "Cancelar Compra" */
+    #aceptar-compra-btn,
+    #cancelar-compra-btn {
+        margin-top: 10px;
         padding: 10px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+
+    #aceptar-compra-btn:hover,
+    #cancelar-compra-btn:hover {
+        background-color: #45a049;
+    }
+
+    /* Ajuste de estilo para el botón "Vaciar Carrito" */
+    #vaciar-carrito {
+        background-color: #ffcccc;
+        color: #333;
+        font-size: 12px;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
         margin-top: 10px;
-        position: static;
     }
 
-    #lista-carrito {
-        position: absolute;
-        top: 100%;
-        right: 0;
-        width: 100%;
-        background-color: #eef9f776;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
-        display: none;
-        z-index: 2;
-    }
-
-    #resumen-popup {
-        max-height: 70vh;
-        overflow-y: auto;
+    /* Estilo para el botón de enviar pedido */
+    #enviar-pedido {
+        font-size: 14px;
+        padding: 8px 16px;
+        background-color: #9bce21;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
         margin-top: 10px;
     }
 
-    /* Otros estilos específicos para pantallas pequeñas según tus necesidades */
+    #enviar-pedido:hover {
+        background-color: #13462E;
+
+    }
+    .header-txt {
+        flex-basis: calc(50% - 25px);
+        margin-right: 25px;
+    }
+
+    .header-img {
+        flex-basis: calc(50% - 25px);
+        margin-left: 25px;
+    }
+    .ofert-1 {
+        padding: 10px;
+    }
+
+    .ofert-txt {
+        padding: 0 10px;
+    }
+
+    .ofert-txt h3 {
+        font-size: 24px;
+    }
+    #whatsapp-container {
+        position: fixed;
+        bottom: 20px; /* Ajusta la posición vertical según tus necesidades */
+        left: 20px; /* Ajusta la posición horizontal según tus necesidades */
+        z-index: 1000; /* Asegura que esté por encima de otros elementos */
+        cursor: pointer;
+      }
+      
+      #whatsapp-container a img {
+        width: 10px; /* Ajusta el ancho según sea necesario */
+        height: 10px; /* Mantén la proporción original */
+      }
+    @media screen and (max-width: 768px) {
+        .footer-section {
+            flex-basis: 100%; /* Asegura que cada sección ocupe el ancho completo en pantallas pequeñas */
+            order: 2; /* Cambia el orden de las secciones para que "Contacto" aparezca debajo de "Quienes Somos" */
+        }
+    
+        .footer-section:nth-child(1) {
+            order: 1; /* Restaura el orden original para "Quienes Somos" */
+        }
+    }
+
+    .contact-list {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .contact-list li {
+        margin-bottom: 10px;
+        font-size: 16px;
+        color: #333;
+    }
+    
+    .contact-list a {
+        text-decoration: none;
+        color: #333;
+        display: flex;
+        align-items: center;
+    }
+    
+    .contact-list a i {
+        margin-right: 10px;
+    }
+    
+    .contact-list a:hover {
+        color: #ff6347;
+    }
+    
 }
+
