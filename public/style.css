@@ -772,6 +772,42 @@ h2.agregar-al-carrito {
     flex-basis: calc(50% - 25px);
     margin-left: 25px;
 }
+@media screen and (max-width: 768px) {
+    .footer-section {
+        flex-basis: 100%; /* Asegura que cada sección ocupe el ancho completo en pantallas pequeñas */
+        order: 2; /* Cambia el orden de las secciones para que "Contacto" aparezca debajo de "Quienes Somos" */
+    }
+
+    .footer-section:nth-child(1) {
+        order: 1; /* Restaura el orden original para "Quienes Somos" */
+    }
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-list li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.contact-list a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.contact-list a i {
+    margin-right: 10px;
+}
+
+.contact-list a:hover {
+    color: #ff6347;
+}
 
 
 
@@ -900,42 +936,7 @@ h2.agregar-al-carrito {
         width: 10px; /* Ajusta el ancho según sea necesario */
         height: 10px; /* Mantén la proporción original */
       }
-    @media screen and (max-width: 768px) {
-        .footer-section {
-            flex-basis: 100%; /* Asegura que cada sección ocupe el ancho completo en pantallas pequeñas */
-            order: 2; /* Cambia el orden de las secciones para que "Contacto" aparezca debajo de "Quienes Somos" */
-        }
-    
-        .footer-section:nth-child(1) {
-            order: 1; /* Restaura el orden original para "Quienes Somos" */
-        }
-    }
-
-    .contact-list {
-        list-style: none;
-        padding: 0;
-    }
-    
-    .contact-list li {
-        margin-bottom: 10px;
-        font-size: 16px;
-        color: #333;
-    }
-    
-    .contact-list a {
-        text-decoration: none;
-        color: #333;
-        display: flex;
-        align-items: center;
-    }
-    
-    .contact-list a i {
-        margin-right: 10px;
-    }
-    
-    .contact-list a:hover {
-        color: #ff6347;
-    }
+  
     
 }
 
