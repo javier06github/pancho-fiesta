@@ -190,9 +190,7 @@ function insertarCarrito(elemento) {
     const row = document.createElement('tr');
     row.setAttribute('data-id', elemento.id);
     row.innerHTML = `
-        <td>
-            <img src="${elemento.imagen}" width=100 height=150px>
-        </td>
+       
         <td>
             ${elemento.nombre}
             <p>${elemento.descripcion}</p>

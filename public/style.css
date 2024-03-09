@@ -47,7 +47,10 @@ img {
     max-width: 100%;
 }
 
-
+#lista-carrito th.img-carrito,
+#lista-carrito td.img-carrito {
+    display: none; /* Oculta la columna de la imagen en todas las pantallas */
+}
 
 .header {
     position: relative;
@@ -812,52 +815,104 @@ h2.agregar-al-carrito {
 
 
 @media screen and (max-width: 480px) {
-    .submenu #carrito {
-        min-width: 100%;
-        max-width: 100vw;
-        padding: 20px;
-        background-color: #eef9f776;
+    #lista-carrito {
+        width: 30%;
     }
 
-    #carrito #lista-carrito {
-        overflow-x: auto;
-    }
-
-    #lista-carrito table {
-        width: 100%;
-    }
-
-    /* Estilo para las filas en el carrito */
-    #lista-carrito tr {
-        background-color: #ffffff;
-    }
-
-    /* Estilo para las celdas en el carrito */
+    #lista-carrito th,
     #lista-carrito td {
-        padding: 8px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-        color: #ffffff; /* Color blanco para el texto en las celdas */
-        display: flex; /* Agregado para corregir el problema de diseño */
-        justify-content: space-between; /* Agregado para alinear horizontalmente los elementos en las celdas */
-        align-items: center; /* Agregado para alinear verticalmente los elementos en las celdas */
-    }
-
-    /* Estilo para las celdas de cantidad en el carrito */
-    #lista-carrito .cantidad {
         text-align: center;
-        color: #ffffff; /* Color blanco para el texto en las celdas de cantidad */
+        font-size: 8px; /* Ajusta el tamaño del texto según sea necesario */
     }
 
-    /* Estilo para las celdas de botones en el carrito */
-    #lista-carrito .accion {
-        text-align: center;
+    /* Ajusta el fondo para oscurecerlo */
+    #carrito {
+        background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
+        color: #fff; /* Texto en color claro para mejorar la visibilidad */
+    }
+    #carrito {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: -5px;
+        margin: 0;
+        width: 300px; /* Ajusta el ancho del carrito según sea necesario */
+        height: 100vh;
+        overflow-y: auto;
+        background-color: #f1caca;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 0px;
+        z-index: 1000;
+        display: none;
+    }
+    
+
+    #carrito.show {
+        display: block;
+    }
+    
+    #lista-carrito td {
+        text-align: left; /* Alinea el texto a la izquierda para una mejor lectura */
+        font-size: 14px; /* Ajusta el tamaño del texto según sea necesario */
     }
 
+
+
+    #lista-carrito a {
+        color: #3498db;
+        text-decoration: none;
+        font-size: 14px; /* Ajusta el tamaño del texto según sea necesario */
+    }
+
+    #lista-carrito a:hover {
+        text-decoration: underline;
+    }
+
+    #lista-carrito .cantidad,
+    #lista-carrito .precio {
+        font-size: 14px; /* Ajusta el tamaño del texto según sea necesario */
+    }
+
+    #lista-carrito .incrementar,
+    #lista-carrito .decrementar {
+        font-size: 14px;
+    }
+
+    #total {
+        font-size: 14px;
+        color: #fdfdfd;
+        margin-top: 10px;
+    }
+
+    #aceptar-compra-btn,
+    #cancelar-compra-btn,
+    #vaciar-carrito,
+    #enviar-pedido {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    #aceptar-compra-btn:hover,
+    #cancelar-compra-btn:hover,
+    #vaciar-carrito:hover,
+    #enviar-pedido:hover {
+        background-color: #45a049;
+    }
+
+    .submenu #carrito {
+        min-width:150px;
+        max-width: 200px;
+        margin: 0%;
+        padding: 0px;
+        background-color: #383536c3;
+        min-height: 60vh;
+        max-height: 300vh; /* Ajusta la altura máxima del carrito abierto según sea necesario */
+    }
     /* Estilo para el total en el carrito */
     #total {
-        font-size: 1.5em;
-        color: #fdfdfd;
+        font-size: 20px;
+        color: #ffffff;
         margin-top: 10px;
     }
 
@@ -904,14 +959,71 @@ h2.agregar-al-carrito {
         background-color: #13462E;
 
     }
+    .header-content {
+        flex-direction: column; /* Cambia la dirección del contenido a columna */
+        align-items: center; /* Centra los elementos en el eje transversal */
+        text-align: center; /* Centra el texto en el header */
+    }
+
     .header-txt {
-        flex-basis: calc(50% - 25px);
-        margin-right: 25px;
+        flex-basis: 100%; /* Ocupa todo el ancho disponible */
+        margin-right: 0; /* Elimina el margen derecho */
+        margin-bottom: 20px; /* Añade un margen inferior para separar del contenido siguiente */
     }
 
     .header-img {
-        flex-basis: calc(50% - 25px);
-        margin-left: 25px;
+        flex-basis: 100%; /* Ocupa todo el ancho disponible */
+        margin-left: 0; /* Elimina el margen izquierdo */
+    }
+
+    .logo-container {
+        margin-bottom: 20px; /* Añade espacio entre el logo y el texto */
+    }
+
+    .menu {
+        flex-direction: column; /* Coloca los elementos del menú en columna */
+    }
+    .menu label {
+        display: block; /* Muestra el botón de menú (hamburguesa) */
+        cursor: pointer;
+    }
+
+
+    .menu-icono {
+        display: block; /* Muestra el icono de menú (hamburguesa) */
+        cursor: pointer;
+    }
+
+    .navbar {
+        flex-direction: column; /* Alinea los elementos en columna */
+        align-items: center;
+    }
+
+    #menu:checked + .navbar {
+        display: flex; /* Muestra el menú cuando la casilla está marcada */
+        flex-direction: column; /* Coloca los elementos del menú en columna */
+        position: absolute; /* Asegura que el menú cubra toda la pantalla */
+        top: 60px; /* Ajusta la posición vertical según tus necesidades */
+        left: 0; /* Ajusta la posición horizontal según tus necesidades */
+        background-color: #111419; /* Color de fondo del menú */
+        z-index: 1; /* Asegura que el menú esté por encima de otros elementos */
+    }
+
+    .navbar ul {
+        width: 100%; /* Ocupa el ancho completo de la pantalla */
+        text-align: center; /* Centra los elementos de la lista */
+        padding-top: 20px; /* Espaciado superior para separar del encabezado */
+    }
+
+    .navbar li {
+        margin-bottom: 10px; /* Espaciado entre elementos de la lista */
+    }
+
+   
+
+    .navbar ul li a {
+        padding: 15px; /* Ajusta el espacio alrededor del enlace */
+        font-size: 16px; /* Ajusta el tamaño del texto */
     }
     .ofert-1 {
         padding: 10px;
@@ -924,18 +1036,24 @@ h2.agregar-al-carrito {
     .ofert-txt h3 {
         font-size: 24px;
     }
-    #whatsapp-container {
-        position: fixed;
-        bottom: 20px; /* Ajusta la posición vertical según tus necesidades */
-        left: 20px; /* Ajusta la posición horizontal según tus necesidades */
-        z-index: 1000; /* Asegura que esté por encima de otros elementos */
-        cursor: pointer;
-      }
-      
-      #whatsapp-container a img {
-        width: 10px; /* Ajusta el ancho según sea necesario */
-        height: 10px; /* Mantén la proporción original */
-      }
+    #resumen-popup {
+        font-size: 12px;
+        padding: 10px;
+        max-width: 90vw; /* Ajusta el ancho máximo del resumen */
+        overflow-x: auto; /* Agrega una barra de desplazamiento horizontal si es necesario */
+    }
+
+    #resumen-popup table,
+    #resumen-popup th,
+    #resumen-popup td {
+        font-size: 12px;
+    }
+
+    #resumen-popup button {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+    
   
     
 }
