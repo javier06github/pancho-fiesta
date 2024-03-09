@@ -14,41 +14,64 @@
 
 <body>
     <header class="header">
+        <!-- Agrega la nueva sección de contacto con comentario -->
+        <div class="contact-section">
+           
+            <ul class="contact-list">
+                <li>
+                    <p class="contact-comment">¡Contáctanos!</p>
+                </li>
+                <li>
+                    <a href="mailto:panchofiestaok@gmail.com" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-envelope"></i> Correo Electronico
+                    </a>
+                </li>
+                <li>
+                    <a href="https://wa.me/+5491157136759" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/panchofiesta/" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                </li>
+                <li>
+                    <strong>Dirección:</strong> Av. Enrique Santamarina 706, B1842JOO Gran Buenos Aires, Provincia de Buenos Aires
+                </li>
+            </ul>
+        </div>
+
         <div class="menu container">
-            <a href="#" class="logo">
+            <a class="logo">
                 <!-- Agrega una clase al contenedor del logo para aplicar estilos específicos -->
                 <div class="logo-container">
                     <img src="img/Pan.png" alt="Logo del Local">
                 </div>
             </a>
 
-            <input type="checkbox" id="menu" class="menu-checkbox">
-            <label for="menu" class="menu-icon">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
+    
             
             <nav class="navbar">
                 <ul class="menu-list">
-                    <li><a href="#lista-10">Combos</a></li>
-                    <li><a href="#lista-1">Snacks</a></li>
+                    <li><a href="#titulo-lista-10">Combos</a></li>
+                    <li><a href="#titulo-lista-1">Snacks</a></li>
                     <!-- Agrega una clase "dropdown" a la lista desplegable -->
                     <li class="dropdown">
                         <a href="#" class="dropdown-btn">Hamburguesas</a>
                         <!-- Agrega el contenido del menú desplegable -->
                         <div class="dropdown-content">
-                            <a href="#lista-2">Promo 20 Hamburguesas <br> Gigantes 120 y 125 grs</a>
-                            <a href="#lista-3">Promo 40 Hamburguesas <br> Gigantes 120 y 125 grs</a>
-                            <a href="#lista-4">Promo 30 Hamburguesas <br> Trad. 69 grs.</a>
-                            <a href="#lista-5">Promo 60 Hamburguesas <br> Trad. 69 grs.</a>
-                            <a href="#lista-6">Promo 30 Hamburguesas <br> parrilleras 83 grs.</a>
-                            <a href="#lista-7">Promo 48 Hamburguesas <br> parrilleras 83 grs.</a>
+                            <a href="#titulo-lista-2">Promo 20 Hamburguesas <br> Gigantes 120 y 125 grs</a>
+                            <a href="#titulo-lista-3">Promo 40 Hamburguesas <br> Gigantes 120 y 125 grs</a>
+                            <a href="#titulo-lista-4">Promo 30 Hamburguesas <br> Trad. 69 grs.</a>
+                            <a href="#titulo-lista-5">Promo 60 Hamburguesas <br> Trad. 69 grs.</a>
+                            <a href="#titulo-lista-6">Promo 30 Hamburguesas <br> parrilleras 83 grs.</a>
+                            <a href="#titulo-lista-7">Promo 48 Hamburguesas <br> parrilleras 83 grs.</a>
                             
                         </div>
                     </li>
-                    <li><a href="#lista-8">Panchos Cortos</a></li>
-                    <li><a href="#lista-9">Super Panchos</a></li>
+                    <li><a href="#titulo-lista-8">Panchos Cortos</a></li>
+                    <li><a href="#titulo-lista-9">Super Panchos</a></li>
                 </ul>
             </nav>
             <div>
@@ -97,8 +120,8 @@
                 Tenemos los mejores productos y calidad en panchos cortos y Super Panchos. A precios muy competitivos.
             </p>
             <div class="butons">
-                <a href="#lista-8" class="btn-1">Ver Ofertas Panchos Cortos</a>
-                <a href="#lista-9" class="btn-1">Ver ofertas Super Panchos</a>
+                <a href="#titulo-lista-8" class="btn-1">Ver Ofertas Panchos Cortos</a>
+                <a href="#titulo-lista-9" class="btn-1">Ver ofertas Super Panchos</a>
             </div>
 
         </div>
@@ -112,7 +135,7 @@
         <div class="ofert-1 b1">
             <div class="ofert-txt">
                 <h3>Ofertas insuperables en Hamburguesas Parrilleras. </h3>
-                <a href="#lista-6">Ir a las Ofertas</a>
+                <a href="#titulo-lista-6">Ir a las Ofertas</a>
             </div>
             <div class="ofert-img">
                 <img src="img/Hamb (2).png" alt="">
@@ -121,7 +144,7 @@
         <div class="ofert-1 b2">
             <div class="ofert-txt">
                 <h3>Las mejores marcas de Panchos Cortos. </h3>
-                <a href="#lista-8">Ir a las Ofertas</a>
+                <a href="#titulo-lista-8">Ir a las Ofertas</a>
             </div>
             <div class="ofert-img">
                 <img src="img/pancho.png" alt="">
@@ -130,7 +153,7 @@
         <div class="ofert-1 b3">
             <div class="ofert-txt">
                 <h3>Tu combo de Snacks al mejor precio. </h3>
-                <a href="#lista-10">Ir a las Ofertas</a>
+                <a href="#titulo-lista-10">Ir a las Ofertas</a>
             </div>
             <div class="ofert-img">
                 <img src="img/papas.png" alt="">
@@ -141,41 +164,41 @@
 
     <main class="products container">
 
-        <h2 class="agregar-al-carrito">Snacks</h2>
+        <h2 id="titulo-lista-1" class="agregar-al-carrito">Snacks</h2>
         <div class="box-container" id="lista-1">
         </div>
         
-        <h2 class="agregar-al-carrito"> Promo <br> 20 Hamburguesas Gigantes  <br> 110 grs. y 125 grs. con Pan y Aderezo </h2>
+        <h2 id="titulo-lista-2"  class="agregar-al-carrito"> Promo <br> 20 Hamburguesas Gigantes  <br> 110 grs. y 125 grs. con Pan y Aderezo </h2>
         <div class="box-container" id="lista-2"> </div>
     
 
-        <h2 class="agregar-al-carrito">Promo <br> 40 Hamburguesas Gigantes  <br> 110 grs. y 125 grs. con Pan y Aderezo </h2>
+        <h2 id="titulo-lista-3" class="agregar-al-carrito">Promo <br> 40 Hamburguesas Gigantes  <br> 110 grs. y 125 grs. con Pan y Aderezo </h2>
         <div class="box-container" id="lista-3">
         </div>
     
         
-        <h2 class="agregar-al-carrito">Promo <br> 30 hamburguesas tradicionales <br> de 69 grs con pan y aderezo </h2>
+        <h2 id="titulo-lista-4" class="agregar-al-carrito">Promo <br> 30 hamburguesas tradicionales <br> de 69 grs con pan y aderezo </h2>
         <div class="box-container" id="lista-4"></div>
 
 
-        <h2 class="agregar-al-carrito">Promo <br> 60 hamburguesas tradicionales <br> de 69 grs con pan y aderezo </h2>
+        <h2 id="titulo-lista-5" class="agregar-al-carrito">Promo <br> 60 hamburguesas tradicionales <br> de 69 grs con pan y aderezo </h2>
         <div class="box-container" id="lista-5"></div>
 
 
-        <h2 class="agregar-al-carrito">Promo <br> 30 hamburguesas Parrilleras <br> de 83 grs con pan y aderezo </h2>
+        <h2 id="titulo-lista-6" class="agregar-al-carrito">Promo <br> 30 hamburguesas Parrilleras <br> de 83 grs con pan y aderezo </h2>
         <div class="box-container" id="lista-6"></div>
 
 
-        <h2 class="agregar-al-carrito">Promo <br> 48 hamburguesas Parrilleras <br> de 83 grs con pan y aderezo </h2>
+        <h2 id="titulo-lista-7"  class="agregar-al-carrito">Promo <br> 48 hamburguesas Parrilleras <br> de 83 grs con pan y aderezo </h2>
         <div class="box-container" id="lista-7"></div>
 
-        <h2 class="agregar-al-carrito">Promo <br> 30 Panchos Cortos con pan y aderezo </h2>
+        <h2 id="titulo-lista-8"  class="agregar-al-carrito">Promo <br> 30 Panchos Cortos con pan y aderezo </h2>
         <div class="box-container" id="lista-8"></div>
 
-        <h2 class="agregar-al-carrito">Promo <br> 36 Super Panchos con pan y aderezo </h2>
+        <h2 id="titulo-lista-9"  class="agregar-al-carrito">Promo <br> 36 Super Panchos con pan y aderezo </h2>
         <div class="box-container" id="lista-9"></div>
 
-        <h2 class="agregar-al-carrito">COMBO <br> Palitos, Papas fritas, Mani y Chizitos</h2>
+        <h2 id="titulo-lista-10"  class="agregar-al-carrito">COMBO <br> Palitos, Papas fritas, Mani y Chizitos</h2>
         <div class="box-container" id="lista-10"></div>
     
         
@@ -229,7 +252,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.instagram.com/tucuenta/" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.instagram.com//panchofiesta/" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-instagram"> Instagram</i> 
                         </a>
                     </li>

@@ -149,36 +149,37 @@ function cargarEventListeners(idSeccion) {
 }
 
 
-    function comprarElemento(e) {
-        e.preventDefault();
-    
-        if (e.target.classList.contains('agregar-carrito')) {
-            const elemento = e.target.closest('.box'); // Obtener el contenedor 'box' más cercano
-    
-            if (elemento) {
-                leerDatosElemento(elemento);
-            }
+function comprarElemento(e) {
+    e.preventDefault();
+
+    if (e.target.classList.contains('agregar-carrito')) {
+        const elemento = e.target.closest('.box'); // Obtener el contenedor 'box' más cercano
+
+        if (elemento) {
+            const infoElemento = leerDatosElemento(elemento);
+            agregarAlCarrito(infoElemento);
         }
     }
+}
     
 
-    function leerDatosElemento(elemento) {
-        const infoElemento = {
-            imagen: elemento.querySelector('img').src,
-            nombre: elemento.querySelector('h3').textContent,
-            descripcion: elemento.querySelector('p').textContent,
-            precio: parseFloat(elemento.querySelector('.precio').textContent.replace('$', '')),
-            id: elemento.querySelector('a').getAttribute('data-id'),
-            cantidad: 1,
-        };
-    
+function leerDatosElemento(elemento) {
+    const infoElemento = {
+        imagen: elemento.querySelector('img').src,
+        nombre: elemento.querySelector('h3').textContent,
+        descripcion: elemento.querySelector('p').textContent,
+        precio: parseFloat(elemento.querySelector('.precio').textContent.replace('$', '')),
+        id: elemento.querySelector('a').dataset.id,
+        cantidad: 1,
+    };
+
     const existenteIndex = carritoProductos.findIndex((producto) => producto.id === infoElemento.id);
 
     if (existenteIndex !== -1) {
         carritoProductos[existenteIndex].cantidad++;
         const filaExistente = document.querySelector(`[data-id="${infoElemento.id}"]`);
-        filaExistente.children[3].textContent = carritoProductos[existenteIndex].cantidad;
-        filaExistente.children[4].textContent = (infoElemento.precio * carritoProductos[existenteIndex].cantidad).toFixed(2) + ' $';
+        filaExistente.querySelector('.cantidad').textContent = carritoProductos[existenteIndex].cantidad;
+        filaExistente.querySelector('.total').textContent = (infoElemento.precio * carritoProductos[existenteIndex].cantidad).toFixed(2) + ' $';
     } else {
         carritoProductos.push(infoElemento);
         insertarCarrito(infoElemento);
@@ -264,19 +265,23 @@ function actualizarTotal() {
 }
 
 function eliminarElemento(id) {
-    const index = carritoProductos.findIndex((producto) => producto.id === id);
+    const botonBorrar = event.target;
 
-    if (index !== -1) {
-        const totalProductoEliminado = carritoProductos[index].precio * carritoProductos[index].cantidad;
-        carritoProductos.splice(index, 1);
+    if (botonBorrar.classList.contains('borrar')) {
+        const index = carritoProductos.findIndex((producto) => producto.id === id);
 
-        const filaEliminada = document.querySelector(`[data-id="${id}"]`);
-        filaEliminada.remove();
+        if (index !== -1) {
+            const totalProductoEliminado = carritoProductos[index].precio * carritoProductos[index].cantidad;
+            carritoProductos.splice(index, 1);
 
-        actualizarTotal(-totalProductoEliminado);
-        console.log('Elemento eliminado con éxito');
-    } else {
-        console.log('Elemento no encontrado en el carrito');
+            const filaEliminada = document.querySelector(`[data-id="${id}"]`);
+            filaEliminada.remove();
+
+            actualizarTotal(-totalProductoEliminado);
+            console.log('Elemento eliminado con éxito');
+        } else {
+            console.log('Elemento no encontrado en el carrito');
+        }
     }
 }
 

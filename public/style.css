@@ -47,6 +47,44 @@ img {
     max-width: 100%;
 }
 
+.header .contact-comment {
+    font-size: 1.5em; /* Ajusta el tamaño del texto según tu preferencia */
+    font-weight: bold; /* Establece el texto en negrita */
+    color: white; /* Cambia el color del comentario según tu preferencia */
+    margin-bottom: 10px; /* Añade espacio debajo del comentario */
+}
+
+.header .contact-section {
+    background-color: #333; /* Cambia el color de fondo según tu preferencia */
+    padding: 10px 0;
+    text-align: center; /* Centra el contenido */
+}
+
+.header .contact-comment {
+    color: white; /* Cambia el color del comentario según tu preferencia */
+    margin-bottom: 10px; /* Añade espacio debajo del comentario */
+}
+
+.header .contact-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center;
+    color: white; /* Cambia el color del texto según tu preferencia */
+}
+
+.header .contact-list li {
+    margin: 0 15px; /* Añade espacio entre los elementos */
+}
+
+.header .contact-list a {
+    text-decoration: none;
+    color: white; /* Cambia el color del enlace según tu preferencia */
+}
+
+
 #lista-carrito th.img-carrito,
 #lista-carrito td.img-carrito {
     display: none; /* Oculta la columna de la imagen en todas las pantallas */
@@ -816,13 +854,13 @@ h2.agregar-al-carrito {
 
 @media screen and (max-width: 480px) {
     #lista-carrito {
-        width: 30%;
+        width: 70%;
     }
 
     #lista-carrito th,
     #lista-carrito td {
         text-align: center;
-        font-size: 8px; /* Ajusta el tamaño del texto según sea necesario */
+        font-size: 12px; /* Ajusta el tamaño del texto según sea necesario */
     }
 
     /* Ajusta el fondo para oscurecerlo */
@@ -835,14 +873,14 @@ h2.agregar-al-carrito {
         top: 0;
         right: 0;
         bottom: 0;
-        left: -5px;
+        left: 0;
         margin: 0;
-        width: 300px; /* Ajusta el ancho del carrito según sea necesario */
+        width: 490px;
         height: 100vh;
         overflow-y: auto;
         background-color: #f1caca;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        padding: 0px;
+        padding: 10px;
         z-index: 1000;
         display: none;
     }
@@ -901,13 +939,16 @@ h2.agregar-al-carrito {
     }
 
     .submenu #carrito {
-        min-width:150px;
-        max-width: 200px;
-        margin: 0%;
-        padding: 0px;
-        background-color: #383536c3;
-        min-height: 60vh;
-        max-height: 300vh; /* Ajusta la altura máxima del carrito abierto según sea necesario */
+        display: none;
+        position: absolute;
+        right: 5px;
+        top: 106%;
+        z-index: 1;
+        background-color: #121414ed;
+        min-width: 100%;
+        max-width: 100vw;
+        padding: 20px;
+        background-color: #3d3c3fc8;
     }
     /* Estilo para el total en el carrito */
     #total {
@@ -1051,9 +1092,16 @@ h2.agregar-al-carrito {
 
     #resumen-popup button {
         font-size: 14px;
+   
         padding: 8px 12px;
     }
-    
+    #img-carrito {
+        padding-left: 0; /* Ajusta el valor según sea necesario o incluso elimínalo si es necesario */
+    }
+
+    .submenu #carrito {
+        left: -107px !important;
+    }
   
     
 }
