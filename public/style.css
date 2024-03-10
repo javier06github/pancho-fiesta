@@ -70,9 +70,11 @@ img {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center; /* Centra los elementos horizontalmente */
+    justify-content: center;
     align-items: center;
-    color: white; /* Cambia el color del texto según tu preferencia */
+    color: white;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .header .contact-list li {
@@ -1102,7 +1104,38 @@ h2.agregar-al-carrito {
     .submenu #carrito {
         left: -107px !important;
     }
-  
+    .header .contact-section {
+        padding: 20px; /* Ajusta el espacio interno en pantallas pequeñas */
+    }
+
+  .header .contact-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-wrap: wrap;
+}
+
+    .header .contact-list li {
+        margin: 10px 0; /* Ajusta el espaciado entre elementos */
+    }
+
+  /* Estilo adicional para mejorar la visibilidad del enlace de contacto en pantallas pequeñas */
+    .header .contact-list a {
+    display: inline-block; /* Permite que el enlace ocupe todo el ancho disponible */
+    padding: 8px 16px; /* Ajusta el espacio interno */
+    border: 1px solid white; /* Agrega un borde blanco al enlace */
+    border-radius: 5px; /* Agrega esquinas redondeadas */
+    transition: background-color 0.3s, color 0.3s; /* Agrega una transición suave para el cambio de color */
+    }
+
+    .header .contact-list a:hover {
+    background-color: white; /* Cambia el fondo al pasar el mouse */
+    color: #333; /* Cambia el color del texto al pasar el mouse */
+    }
     
 }
 
