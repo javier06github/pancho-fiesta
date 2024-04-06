@@ -13,16 +13,18 @@ let emailCliente;
 let telefonoCliente;
 
 socket.on('productosObtenidos', (productos) => {
-    cargarProductosEnSeccion(productos, 0, 8, 'lista-1');
-    cargarProductosEnSeccion(productos, 8, 44, 'lista-2');
-    cargarProductosEnSeccion(productos, 44, 80, 'lista-3');
-    cargarProductosEnSeccion(productos, 80, 107, 'lista-4');
-    cargarProductosEnSeccion(productos, 107, 134, 'lista-5');
-    cargarProductosEnSeccion(productos, 134, 155, 'lista-6');
-    cargarProductosEnSeccion(productos, 155, 176, 'lista-7');
-    cargarProductosEnSeccion(productos, 176, 191, 'lista-8');
-    cargarProductosEnSeccion(productos, 191, 200, 'lista-9');
-    cargarProductosEnSeccion(productos, 200, 202, 'lista-10');
+    cargarProductosEnSeccion(productos, 0, 4, 'lista-1');
+    cargarProductosEnSeccion(productos, 4, 8, 'lista-2');
+    cargarProductosEnSeccion(productos, 8, 32, 'lista-3');
+    cargarProductosEnSeccion(productos, 32, 56, 'lista-4');
+    cargarProductosEnSeccion(productos, 56, 74, 'lista-5');
+    cargarProductosEnSeccion(productos, 74, 92, 'lista-6');
+    cargarProductosEnSeccion(productos, 92, 105, 'lista-7');
+    cargarProductosEnSeccion(productos, 106, 120, 'lista-8');
+    cargarProductosEnSeccion(productos, 120, 130, 'lista-9');
+    cargarProductosEnSeccion(productos, 130, 136, 'lista-10');
+    cargarProductosEnSeccion(productos, 136, 138, 'lista-11');
+
 
     cargarEventListeners('lista-1');
     cargarEventListeners('lista-2');
@@ -34,6 +36,7 @@ socket.on('productosObtenidos', (productos) => {
     cargarEventListeners('lista-8');
     cargarEventListeners('lista-9');
     cargarEventListeners('lista-10');
+    cargarEventListeners('lista-11');
     
 });
 
