@@ -591,4 +591,6 @@ function eliminarElemento(id) {
         // Reemplaza 'TUNUMERO' con tu número de WhatsApp, incluyendo el código del país.
        
     }
+
+    
 }

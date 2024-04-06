@@ -9,6 +9,18 @@
     list-style: none;
 }
 
+.header-img1 {
+    display: flex; /* Utilizar flexbox */
+    justify-content: center; /* Centrar la imagen horizontalmente */
+    margin: 10px 0; /* Reducir el espacio en blanco arriba y abajo */
+}
+
+.header-img1 img {
+    max-width: 100%; /* La imagen no será más ancha que su contenedor */
+    height: auto; /* Mantener la proporción de aspecto al achicar */
+}
+
+
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
@@ -26,7 +38,7 @@ body {
 .menu-list {
     display: flex;
     flex-wrap: nowrap;
-    margin: 5%;
+    margin: 0%;
     flex-direction: column;
     align-content: stretch;
     justify-content: flex-start;
@@ -53,7 +65,7 @@ img {
 }
 
 .header .contact-comment {
-    font-size: 1.5em; /* Ajusta el tamaño del texto según tu preferencia */
+    font-size: 1.3em; /* Ajusta el tamaño del texto según tu preferencia */
     font-weight: bold; /* Establece el texto en negrita */
     color: white; /* Cambia el color del comentario según tu preferencia */
     margin-bottom: 10px; /* Añade espacio debajo del comentario */
@@ -636,7 +648,8 @@ h2.agregar-al-carrito {
 .testimonal-content {
     display: flex;
     justify-content: space-between;
-    margin-top: 50px;
+    margin-top: 46px;
+    margin-right: 17px;
 }
 
 .testimonial-1 {
@@ -1129,14 +1142,16 @@ h2.agregar-al-carrito {
     }
 
   .header .contact-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
+    display: inline-flex;
+    padding: 1px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    flex-direction: row;
     flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: flex-start;
+    align-items: baseline;
+    margin-bottom: -38px;
 }
 
     .header .contact-list li {
@@ -1145,11 +1160,12 @@ h2.agregar-al-carrito {
 
   /* Estilo adicional para mejorar la visibilidad del enlace de contacto en pantallas pequeñas */
     .header .contact-list a {
-    display: inline-block; /* Permite que el enlace ocupe todo el ancho disponible */
-    padding: 8px 16px; /* Ajusta el espacio interno */
-    border: 1px solid white; /* Agrega un borde blanco al enlace */
-    border-radius: 5px; /* Agrega esquinas redondeadas */
-    transition: background-color 0.3s, color 0.3s; /* Agrega una transición suave para el cambio de color */
+        display: inline-block;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    margin-bottom: 0px;
+    margin-top: -39px;
     }
 
     .header .contact-list a:hover {
