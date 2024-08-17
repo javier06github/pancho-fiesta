@@ -1,327 +1,264 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Roboto+Condensed:wght@300&display=swap');
-
+/* Reseteo y estilos básicos */
 * {
     margin: 0;
-    margin-bottom: 26px;
     padding: 0;
-    box-sizing: content-box;
+    box-sizing: border-box;
     text-decoration: none;
     list-style: none;
 }
 
-.header-img1 {
-    display: flex; /* Utilizar flexbox */
-    justify-content: center; /* Centrar la imagen horizontalmente */
-    margin: 10px 0; /* Reducir el espacio en blanco arriba y abajo */
-}
-
-.header-img1 img {
-    max-width: 100%; /* La imagen no será más ancha que su contenedor */
-    height: auto; /* Mantener la proporción de aspecto al achicar */
-}
-
-
 body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    flex-wrap: wrap;
 }
 
 .container {
-    max-width: 1084px;
-    margin: 2 auto;
-    width: 90%;
-    margin: 0 auto;
+    width: 80%;
+    padding: 0;
+    margin: 140px auto 0;
+}
+
+/* Subgrupo */
+.subgrupo-container {
+    display: none;
+}
+
+.subgrupo-container.mostrar {
+    display: block;
+}
+
+/* Carrusel */
+.box-container.carousel {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+}
+
+.box-container.carousel .box:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.box-container.carousel img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.box-container.carousel::-webkit-scrollbar {
+    height: 12px;
+}
+
+.box-container.carousel::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.box-container.carousel::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.box-container.carousel::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Subgrupo título */
+h3.subgrupo-titulo {
+    display: inline-block;
+    padding: 10px 22px;
+    background-color: #9bce21;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h3.subgrupo-titulo:hover {
+    background-color: #13462E;
+}
+
+/* Contact section */
+.contact-section {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.contact-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.contact-list li {
+    margin-left: 15px;
+}
+
+.contact-comment {
+    margin-right: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.contact-list a {
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.contact-list a:hover {
+    color: #ff6347;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .menu-list {
     display: flex;
-    flex-wrap: nowrap;
-    margin: 0%;
-    flex-direction: column;
-    align-content: stretch;
-    justify-content: flex-start;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .menu-list li {
-    margin-bottom: 10px;
+    margin-left: 20px;
 }
 
 .menu-list a {
-    text-decoration: none;
-    color: #333;
+    color: white;
     font-weight: bold;
-    font-size: 1.9em;
+    font-size: 16px;
+    transition: color 0.3s;
 }
 
 .menu-list a:hover {
     color: #ff6347;
 }
 
-img {
-    max-width: 100%;
-}
-
-.header .contact-comment {
-    font-size: 1.3em; /* Ajusta el tamaño del texto según tu preferencia */
-    font-weight: bold; /* Establece el texto en negrita */
-    color: white; /* Cambia el color del comentario según tu preferencia */
-    margin-bottom: 10px; /* Añade espacio debajo del comentario */
-}
-
-.header .contact-section {
-    background-color: #333; /* Cambia el color de fondo según tu preferencia */
-    padding: 10px 0;
-    text-align: center; /* Centra el contenido */
-}
-
-.header .contact-comment {
-    color: white;
-    margin-bottom: 28px;
-}
-
-.header .contact-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    flex-direction: row-reverse;
-    flex-wrap: wrap;
-}
-
-.header .contact-list li {
-    margin: 0 15px; /* Añade espacio entre los elementos */
-    margin-bottom: 10px;
-}
-
-.header .contact-list a {
-    text-decoration: none;
-    color: white; /* Cambia el color del enlace según tu preferencia */
-}
-
-
-#lista-carrito th.img-carrito,
-#lista-carrito td.img-carrito {
-    display: none; /* Oculta la columna de la imagen en todas las pantallas */
-}
-
-.header {
-    position: relative;
-}
-
-.menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 25px;
-    color: #9bce21;
-    text-transform: uppercase;
-    font-weight: 800;
-}
-
-.logo-container {
-    width: 180px;
-}
-
-.logo img {
-    width: 100%;
-    height: auto;
-}
-
-.menu .navbar ul li {
-    position: relative;
-    float: left;
-}
-
-.menu .navbar ul li a {
-    font-size: 20px;
-    padding: 20px;
-    color: #111419;
-    display: block;
-}
-
-.menu .navbar ul li a:hover {
-    color: #9bce21;
-}
-
-#menu {
+/* Dropdown */
+.dropdown-content {
     display: none;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-.menu-icono {
-    display: none;
-}
-
-.menu label {
-    cursor: pointer;
-    display: none;
-}
-
-.submenu {
-    position: relative;
-}
-
-.submenu #carrito {
-    display: none;
-    margin-right: 5px;
     position: absolute;
-    right: -46;
-    top: 100%;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    background-color: #121414ed;
-    min-width: 96%;
-    max-width: 92vw;
-    margin-left: 5px;
-    padding-left: 22px;
-    background-color: #3d3c3fc8;
 }
 
-.submenu:hover #carrito {
+.dropdown:hover .dropdown-content {
     display: block;
 }
 
-th, td {
-    color: #FFFFFF;
-}
-
-.borrar {
-    background-color: #9bce21;
-    border-radius: 50%;
-    padding: 5px 10px;
-    color: #FFFFFF;
-    font-weight: 800;
-}
-
-#total {
-    font-size: 1.5em;
-    color: #f5f5f9f6;
-}
-
-#lista-carrito th{
-    padding: 8px;
-    text-align: left;
-    color: #FFFFFF;
-      justify-content: space-between; /* Agregado para alinear horizontalmente los elementos en las celdas */
-        align-items: center;
-}
-
-
-#lista-carrito td {
-    padding: 8px;
-    text-align: left;
-    color: #FFFFFF;
-    justify-content: space-between; /* Agregado para alinear horizontalmente los elementos en las celdas */
-    align-items: center;
-    
-}
-
-#lista-carrito table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-#resumen-popup table {
-    width: 100%;
-    margin-top: 20px;
-}
-
-#resumen-popup th,
-#resumen-popup td {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    display: block;
     text-align: left;
 }
 
-#aceptar-compra-btn,
-#cancelar-compra-btn {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    cursor: pointer;
+.dropdown-content a:hover {
+    background-color: #ddd;
 }
 
-#aceptar-compra-btn:hover,
-#cancelar-compra-btn:hover {
-    background-color: #45a049;
-}
-
-#lista-carrito .incrementar,
-#lista-carrito .decrementar {
-    display: inline-block;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 14px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-#lista-carrito .incrementar:hover,
-#lista-carrito .decrementar:hover {
-    background-color: #45a049;
-}
-
-#lista-carrito table {
-    width: 100%;
-    border-collapse: collapse;
+/* Cart */
+.cart-container {
+    position: relative;
 }
 
 #img-carrito {
-    width: 120px;
-    padding-left: 47%;
-}
-
-#lista-carrito th {
-    background-color: #e04141;
-}
-
-#lista-carrito .incrementar,
-#lista-carrito .decrementar {
-    display: inline-block;
-    background-color: #c6c6c6;
-    color: #d62124;
-    border: none;
-    padding: 8px 16px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 14px;
-    margin: 4px 2px;
+    width: 30px;
     cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s;
 }
 
-#lista-carrito .incrementar:hover,
-#lista-carrito .decrementar:hover {
-    background-color: #5445a0;
+#cart-counter {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px;
+    display: none;
+    font-size: 16px;
 }
 
-#lista-carrito img {
-    max-height: 80px;
-    width: 90%;
+#carrito {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 40px;
+    background-color: #fff;
+    color: #333;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    width: 450px;
+    max-height: 500px;
+    overflow-y: auto;
 }
 
-#resumen-popup img {
-    max-height: 40px;
-    width: auto;
+#carrito table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#carrito th,
+#carrito td {
+    padding: 10px;
+    text-align: left;
+}
+
+#carrito th {
+    background-color: #f4f4f4;
+}
+
+#carrito td {
+    border-bottom: 1px solid #ddd;
+}
+
+#vaciar-carrito, #enviar-pedido {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+#total {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 20px;
 }
 
 #resumen-popup {
@@ -330,90 +267,62 @@ th, td {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #ce6464;
-    color: #000000;
+    background-color: #333;
+    color: #fff;
     padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1002;
+    width: 80%;
+    max-width: 600px;
+    max-height: 80%;
+    overflow-y: auto;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
-    z-index: 1000;
 }
 
 #resumen-popup table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
-#resumen-popup table, #resumen-popup th, #resumen-popup td {
-    border: 1px solid #dddddd;
-}
-
-#resumen-popup th, #resumen-popup td {
+#resumen-popup th,
+#resumen-popup td {
     padding: 10px;
-    text-align: center;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
 }
 
 #resumen-popup th {
-    background-color: #564141;
+    background-color: #444;
 }
 
-#resumen-popup button {
-    background-color: #3498db;
-    color: #ffffff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+#resumen-popup td {
+    color: #ccc;
 }
 
-#resumen-popup button:hover {
-    background-color: #2980b9;
-}
-
-#aceptar-compra-btn {
+#aceptar-compra-btn, #cancelar-compra-btn {
     display: block;
-    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
     background-color: #9bce21;
     color: #fff;
-    padding: 10px;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    text-align: center;
+    margin-top: 10px;
 }
 
-#aceptar-compra-btn:hover {
+#aceptar-compra-btn:hover, #cancelar-compra-btn:hover {
     background-color: #13462E;
 }
 
-#vaciar-carrito {
-    background-color: #ffcccc;
-    color: #333;
-    font-size: 12px;
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+/* Imagenes en oferta */
+.ofert-img img {
+    width: 100%;
+    height: auto;
 }
 
-#nombre-cliente {
-    padding: 8px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 10px;
-}
-
-#enviar-pedido {
-    font-size: 14px;
-    padding: 8px 16px;
-    background-color: #9bce21;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
+/* Botones */
 .btn-2, .btn-3 {
     background-color: #9bce21;
     margin-top: 50px;
@@ -436,6 +345,7 @@ th, td {
     border-radius: 5px;
 }
 
+/* Header content */
 .header-content {
     display: flex;
     justify-content: space-between;
@@ -444,18 +354,9 @@ th, td {
     flex-wrap: wrap;
 }
 
-
 .header-txt {
     flex-basis: 100%;
     margin-bottom: 20px;
-}
-span {
-    color: #fcfcfb;
-    font-size: 17px;
-    font-weight: 600;
-    display: block;
-    margin-bottom: 25px;
-    text-overflow: ellipsis;
 }
 
 .header-txt h1 {
@@ -472,20 +373,6 @@ span {
     margin-bottom: 35px;
 }
 
-.butons {
-    display: flex;
-}
-
-.btn-1 {
-    display: inline-block;
-    padding: 13px 25px;
-    background-color: #9bce21;
-    margin-right: 20px;
-    color: #FFFFFF;
-    text-transform: capitalize;
-    margin-bottom: 100px;
-}
-
 .header-img {
     flex-basis: 50%;
     text-align: center;
@@ -496,6 +383,7 @@ span {
     height: auto;
 }
 
+/* Ofertas */
 .oferts {
     padding: 20px 0;
     text-align: center;
@@ -504,52 +392,42 @@ span {
 .ofert-1 {
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 3px;
-    margin-bottom: 0px;
+    margin-bottom: 15px;
+    width: 80%;
+    margin: 0 auto;
 }
 
-.b1 {
-    background-color: #fefefe;
-}
-
-.b2 {
-    background-color: #f7f5f4;
-}
-
-.b3 {
-    background-color: #fdfdfc;
+.ofert-img {
+    width: 100%;
 }
 
 .ofert-txt {
     flex-basis: 50%;
     padding: 0 20px;
+    text-align: center;
 }
+
 .ofert-txt h3 {
     font-size: 20px;
 }
-
 
 .ofert-txt a {
     color: #FFFFFF;
 }
 
-.ofert-img img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: -14px;
-}
-
+/* Productos */
 .products {
     padding: 20px 0;
 }
 
 h2.agregar-al-carrito {
-    margin-top: -17px;
+    margin-top: 4px;
     margin-bottom: 21px;
     padding: 10px 22px;
     background-color: #9bce21;
     color: #fff;
-    border: none;
     border-radius: 1px;
     cursor: pointer;
     font-size: 16px;
@@ -557,92 +435,64 @@ h2.agregar-al-carrito {
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2.agregar-al-carrito:hover {
+    background-color: #13462E;
 }
 
 .box-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
+    overflow-x: auto;
+    white-space: nowrap;
     padding: 10px;
-    transition: box-shadow 0.3s;
-}
-.box-container .box {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    padding: 10px;
-    transition: box-shadow 0.3s;
-    text-align: center;
-    overflow: hidden; /* Agregado para ocultar el desborde hacia arriba */
-    margin-top: 10px;
 }
 
+.box-container .box {
+    display: inline-block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    padding: 20px;
+    transition: box-shadow 0.3s;
+    text-align: center;
+    overflow: hidden;
+    margin: 10px;
+    width: 300px;
+    vertical-align: top;
+}
+
+.box-container .box h3 {
+    font-size: 18px; /* Tamaño de texto reducido */
+    color: #111419;
+    margin-bottom: 10px;
+}
+
+.box-container .box p {
+    font-size: 14px; /* Tamaño de texto reducido */
+    color: #515557;
+}
 
 .box-container .box:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-
 .box-container img {
-    height: 200px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 
-.product-txt h3 {
-    font-size: 20px;
-    color: #e49e76;
-    margin-bottom: 10px;
-}
-.box-container:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.product-txt p {
-    margin-bottom: 25px;
-    color: #515557;
-    text-wrap: pretty;
-}
-
-.precio {
-    font-size: 17px;
-    font-weight: 700;
-    color: #ff9100 !important;
-}
-
-.btn-2,
-.btn-3 {
-    background-color: #9bce21;
-    margin-top: 50px;
-    display: inline-block;
-    padding: 11px 35px;
-    border-radius: 25px;
-    color: #FFFFFF;
-    font-size: 16px;
-    cursor: pointer;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-.btn-2:hover,
-.btn-3:hover,
-.btn-1:hover {
-    background-color: #13462E;
-}
-
-.btn-3 {
-    margin: 0;
-    padding: 8px 25px;
-    border-radius: 5px;
-}
-
+/* Testimonios */
 .testimonial {
     padding: 20px 0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Agrega sombra al container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .testimonial h2 {
-    text-align: center; /* Centra el título */
-    font-size: 24px; /* Ajusta el tamaño del título según sea necesario */
-    color: #333; /* Cambia el color del título */
+    text-align: center;
+    font-size: 24px;
+    color: #333;
 }
 
 .testimonal-content {
@@ -671,12 +521,12 @@ h2.agregar-al-carrito {
     margin-bottom: 25px;
 }
 
+/* Footer */
 .footer {
-    background-color: #f5f5f5; /* Cambia el color de fondo a un gris más suave */
-    color: #333; /* Cambia el color del texto a negro o un tono más oscuro según sea necesario */
+    background-color: #f5f5f5;
+    color: #333;
     padding: 20px 0;
 }
-
 
 .footer-content {
     display: flex;
@@ -689,7 +539,7 @@ h2.agregar-al-carrito {
 }
 
 .footer-section h3 {
-    color: #f40c0c; /* Cambia el color del título a un tono más suave */
+    color: #f40c0c;
 }
 
 .footer-section ul {
@@ -699,16 +549,17 @@ h2.agregar-al-carrito {
 
 .footer-section li {
     margin-bottom: 10px;
-    color: #777; /* Cambia el color del texto de la lista a un tono más suave */
+    color: #777;
 }
+
 .footer-section a {
-    color: #009688; /* Cambia el color del enlace a un tono más llamativo */
+    color: #009688;
     text-decoration: none;
 }
+
 .footer-section a:hover {
     text-decoration: underline;
 }
-
 
 .link h3 {
     color: #FFFFFF;
@@ -726,101 +577,6 @@ h2.agregar-al-carrito {
     color: #9bce21;
 }
 
-#nombre-cliente {
-    padding: 8px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 10px;
-}
-
-#enviar-pedido {
-    font-size: 14px;
-    padding: 8px 16px;
-}
-
-#vaciar-carrito {
-    background-color: #ffcccc;
-    color: #333;
-    font-size: 12px;
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-#carrito {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#carrito #lista-carrito {
-    width: 90%;
-    overflow-x: auto;
-}
-
-#carrito #lista-carrito table {
-    width: 90%;
-}
-
-.submenu .carrito-abierto {
-    display: table; /* Hacemos que el contenedor se comporte como una tabla */
-    position: absolute;
-    right: 0;
-    top: 100%;
-    z-index: 1;
-    background-color: #3d4645a2;
-    padding: 100px;
-    min-width: 400px;
-    max-width: 100vw;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
-}
-
-.submenu .carrito-abierto > * {
-    display: table-cell; /* Hacemos que los elementos internos se comporten como celdas de tabla */
-    vertical-align: top; /* Alineamos verticalmente el contenido */
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-    max-width: 100%;
-}
-
-.dropdown-btn {
-    padding: 15px;
-    text-decoration: none;
-    color: #fff;
-    cursor: pointer;
-}
-
-.dropdown-content {
-    display: none;
-    position: relative;
-    background-color: #f9f9f9;
-    min-width: 91px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    margin-right: 19px;
-}
-
-.dropdown-content a {
-    display: block;
-    padding: 8px;
-    text-decoration: none;
-    color: #333;
-    font-size: px;
-    white-space: nowrap;
-}
-
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
 #scrollTopBtn {
     display: none;
     position: fixed;
@@ -836,117 +592,111 @@ h2.agregar-al-carrito {
 #scrollTopBtn:hover {
     background-color: #0056b3;
 }
-.header-txt {
-    flex-basis: calc(50% - 25px);
-    margin-right: 25px;
-}
 
-.header-img {
-    flex-basis: calc(50% - 25px);
-    margin-left: 25px;
-}
+/* Responsive: Pantallas medianas */
 @media screen and (max-width: 768px) {
-    .footer-section {
-        flex-basis: 100%; /* Asegura que cada sección ocupe el ancho completo en pantallas pequeñas */
-        order: 2; /* Cambia el orden de las secciones para que "Contacto" aparezca debajo de "Quienes Somos" */
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-    .footer-section:nth-child(1) {
-        order: 1; /* Restaura el orden original para "Quienes Somos" */
+    .contact-section, .navbar, .cart-container {
+        margin-bottom: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .menu-list {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu-list li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+    }
+
+    .dropdown-content a {
+        padding: 10px;
+    }
+
+    .box-container .box {
+        width: 45%;
+    }
+
+    .header-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header-txt {
+        flex-basis: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .header-img {
+        flex-basis: 100%;
+        margin-left: 0;
     }
 }
 
-.contact-list {
-    list-style: none;
-    padding: 0;
-}
-
-.contact-list li {
-    margin-bottom: 10px;
-    font-size: 18px;
-    color: #333;
-}
-
-.contact-list a {
-    text-decoration: none;
-    color: #333;
-    display: flex;
-    align-items: center;
-}
-
-.contact-list a i {
-    margin-right: 20px;
-    margin-top: 27px;
-}
-
-.contact-list a:hover {
-    color: #ff6347;
-}
-
-
-
+/* Responsive: Pantallas pequeñas */
 @media screen and (max-width: 480px) {
     #lista-carrito {
         width: 70%;
     }
 
-    #lista-carrito th,
-    #lista-carrito td {
+    #lista-carrito th, #lista-carrito td {
         text-align: center;
-        font-size: 12px; /* Ajusta el tamaño del texto según sea necesario */
+        font-size: 12px;
     }
 
-    /* Ajusta el fondo para oscurecerlo */
     #carrito {
-        background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
-        color: #fff; /* Texto en color claro para mejorar la visibilidad */
+        width: 90%;
+        left: 5%;
+        right: 5%;
     }
-    #carrito {
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        margin: 0;
-        width: 490px;
-        height: 100vh;
-        overflow-y: auto;
-        background-color: #f1caca;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    #carrito table {
+        width: 100%;
+    }
+
+    #carrito th, #carrito td {
         padding: 10px;
-        z-index: 1000;
-        display: none;
+        text-align: left;
     }
-    
 
     #carrito.show {
         display: block;
     }
-    
+
     #lista-carrito td {
-        text-align: left; /* Alinea el texto a la izquierda para una mejor lectura */
-        font-size: 14px; /* Ajusta el tamaño del texto según sea necesario */
+        text-align: left;
+        font-size: 14px;
     }
-
-
 
     #lista-carrito a {
         color: #3498db;
         text-decoration: none;
-        font-size: 14px; /* Ajusta el tamaño del texto según sea necesario */
+        font-size: 14px;
     }
 
     #lista-carrito a:hover {
         text-decoration: underline;
     }
 
-    #lista-carrito .cantidad,
-    #lista-carrito .precio {
-        font-size: 14px; /* Ajusta el tamaño del texto según sea necesario */
+    #lista-carrito .cantidad, #lista-carrito .precio {
+        font-size: 14px;
     }
 
-    #lista-carrito .incrementar,
-    #lista-carrito .decrementar {
+    #lista-carrito .incrementar, #lista-carrito .decrementar {
         font-size: 14px;
     }
 
@@ -956,153 +706,89 @@ h2.agregar-al-carrito {
         margin-top: 10px;
     }
 
-    #aceptar-compra-btn,
-    #cancelar-compra-btn,
-    #vaciar-carrito,
-    #enviar-pedido {
+    #aceptar-compra-btn, #cancelar-compra-btn, #vaciar-carrito, #enviar-pedido {
         font-size: 14px;
         padding: 10px;
     }
 
-    #aceptar-compra-btn:hover,
-    #cancelar-compra-btn:hover,
-    #vaciar-carrito:hover,
-    #enviar-pedido:hover {
+    #aceptar-compra-btn:hover, #cancelar-compra-btn:hover, #vaciar-carrito:hover, #enviar-pedido:hover {
         background-color: #45a049;
     }
 
-    .submenu #carrito {
-        margin-left: 112px;
-        margin-right: 16px;
-        display: none;
-        position: flex;
-        right: 9px;
-        top: 106%;
-        z-index: 1;
-        background-color: #121414ed;
-        min-width: 100%;
-        max-width: 100vw;
+    .box-container .box {
+        width: 90%;
+        max-width: 200px;
+    }
+
+    .header .contact-section {
         padding: 20px;
-        background-color: #3d3c3fc8;
-    }
-    /* Estilo para el total en el carrito */
-    #total {
-        font-size: 20px;
-        color: #ffffff;
-        margin-top: 10px;
     }
 
-    /* Ajuste de estilo para el botón "Aceptar Compra" y "Cancelar Compra" */
-    #aceptar-compra-btn,
-    #cancelar-compra-btn {
-        margin-top: 10px;
-        padding: 10px;
-        background-color: #4CAF50;
-        color: #fff;
-        border: none;
-        cursor: pointer;
-    }
-
-    #aceptar-compra-btn:hover,
-    #cancelar-compra-btn:hover {
-        background-color: #45a049;
-    }
-
-    /* Ajuste de estilo para el botón "Vaciar Carrito" */
-    #vaciar-carrito {
-        background-color: #ffcccc;
-        color: #333;
-        font-size: 12px;
-        padding: 6px 12px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        margin-top: 10px;
-    }
-
-    /* Estilo para el botón de enviar pedido */
-    #enviar-pedido {
-        font-size: 14px;
-        padding: 8px 16px;
-        background-color: #9bce21;
-        color: #fff;
-        border: none;
+    .header .contact-list {
+        display: inline-flex;
+        padding: 1px 15px;
         border-radius: 5px;
-        cursor: pointer;
-        margin-top: 10px;
+        transition: background-color 0.3s, color 0.3s;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: stretch;
+        justify-content: flex-start;
+        align-items: baseline;
+        margin-bottom: -38px;
     }
 
-    #enviar-pedido:hover {
-        background-color: #13462E;
-
+    .header .contact-list li {
+        margin: 10px 0;
     }
+
+    .header .contact-list a {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+        margin-bottom: 0px;
+        margin-top: -39px;
+    }
+
+    .header .contact-list a:hover {
+        background-color: white;
+        color: #333;
+    }
+
+    .cart-container {
+        display: flex;
+        justify-content: center;
+        position: relative;
+    }
+
+    #cart-counter {
+        right: 0;
+        top: 0;
+    }
+
     .header-content {
-        flex-direction: column; /* Cambia la dirección del contenido a columna */
-        align-items: center; /* Centra los elementos en el eje transversal */
-        text-align: center; /* Centra el texto en el header */
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 
     .header-txt {
-        flex-basis: 100%; /* Ocupa todo el ancho disponible */
-        margin-right: 0; /* Elimina el margen derecho */
-        margin-bottom: 20px; /* Añade un margen inferior para separar del contenido siguiente */
+        flex-basis: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
     }
 
     .header-img {
-        flex-basis: 100%; /* Ocupa todo el ancho disponible */
-        margin-left: 0; /* Elimina el margen izquierdo */
+        flex-basis: 100%;
+        margin-left: 0;
     }
 
-    .logo-container {
-        margin-bottom: 20px; /* Añade espacio entre el logo y el texto */
-    }
-
-    .menu {
-        flex-direction: column; /* Coloca los elementos del menú en columna */
-    }
-    .menu label {
-        display: block; /* Muestra el botón de menú (hamburguesa) */
-        cursor: pointer;
-    }
-
-
-    .menu-icono {
-        display: block; /* Muestra el icono de menú (hamburguesa) */
-        cursor: pointer;
-    }
-
-    .navbar {
-        flex-direction: column; /* Alinea los elementos en columna */
-        align-items: center;
-    }
-
-    #menu:checked + .navbar {
-        display: flex; /* Muestra el menú cuando la casilla está marcada */
-        flex-direction: column; /* Coloca los elementos del menú en columna */
-        position: absolute; /* Asegura que el menú cubra toda la pantalla */
-        top: 60px; /* Ajusta la posición vertical según tus necesidades */
-        left: 0; /* Ajusta la posición horizontal según tus necesidades */
-        background-color: #111419; /* Color de fondo del menú */
-        z-index: 1; /* Asegura que el menú esté por encima de otros elementos */
-    }
-
-    .navbar ul {
-        width: 100%; /* Ocupa el ancho completo de la pantalla */
-        text-align: center; /* Centra los elementos de la lista */
-        padding-top: 20px; /* Espaciado superior para separar del encabezado */
-    }
-
-    .navbar li {
-        margin-bottom: 10px; /* Espaciado entre elementos de la lista */
-    }
-
-   
-
-    .navbar ul li a {
-        padding: 15px; /* Ajusta el espacio alrededor del enlace */
-        font-size: 20px; /* Ajusta el tamaño del texto */
-    }
     .ofert-1 {
         padding: 3px;
+    }
+
+    .ofert-img img {
+        width: 120%; /* Incrementa el tamaño de las imágenes en pantallas pequeñas */
     }
 
     .ofert-txt {
@@ -1112,66 +798,20 @@ h2.agregar-al-carrito {
     .ofert-txt h3 {
         font-size: 24px;
     }
+
     #resumen-popup {
-        font-size: 12px;
-        padding: 10px;
-        max-width: 90vw; /* Ajusta el ancho máximo del resumen */
-        overflow-x: auto; /* Agrega una barra de desplazamiento horizontal si es necesario */
+        width: 90%;
+        max-width: 90%;
+        max-height: 90%;
     }
 
-    #resumen-popup table,
-    #resumen-popup th,
-    #resumen-popup td {
+    #resumen-popup table, #resumen-popup th, #resumen-popup td {
         font-size: 12px;
     }
 
     #resumen-popup button {
         font-size: 14px;
-   
         padding: 8px 12px;
     }
-    #img-carrito {
-        padding-left: 147px; /* Ajusta el valor según sea necesario o incluso elimínalo si es necesario */
-    }
-
-    .submenu #carrito {
-        left: -107px !important;
-    }
-    .header .contact-section {
-        padding: 20px; /* Ajusta el espacio interno en pantallas pequeñas */
-    }
-
-  .header .contact-list {
-    display: inline-flex;
-    padding: 1px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: stretch;
-    justify-content: flex-start;
-    align-items: baseline;
-    margin-bottom: -38px;
-}
-
-    .header .contact-list li {
-        margin: 10px 0; /* Ajusta el espaciado entre elementos */
-    }
-
-  /* Estilo adicional para mejorar la visibilidad del enlace de contacto en pantallas pequeñas */
-    .header .contact-list a {
-        display: inline-block;
-    padding: 8px 16px;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-    margin-bottom: 0px;
-    margin-top: -39px;
-    }
-
-    .header .contact-list a:hover {
-    background-color: white; /* Cambia el fondo al pasar el mouse */
-    color: #333; /* Cambia el color del texto al pasar el mouse */
-    }
-    
 }
 

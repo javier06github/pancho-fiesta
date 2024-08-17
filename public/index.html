@@ -1,7 +1,5 @@
-<!-- index.html-->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,152 +7,48 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.js"></script>
     <script src="https://kit.fontawesome.com/e05a616778.js" crossorigin="anonymous"></script>
-
-    <style>
-        .box-container {
-            display: none;
-            margin: 0 auto;
-            padding: 0;
-            overflow-x: auto;
-            white-space: nowrap;
-            margin-bottom: 18px;
-        }
-        
-        .box {
-            text-align: center; /* Centra horizontalmente los productos */
-            margin-right: 20px; /* Espacio entre cada producto */
-            display: inline-block; /* Hace que los productos se muestren en línea */
-            vertical-align: top; /* Alinea los productos en la parte superior */
-            width: 261px; /* Establece el ancho máximo de cada producto */
-        }
-        
-        .box img {
-            max-width: 100%;
-            height: auto;
-        }
-        
-        .descripcion-producto {
-            overflow: hidden; /* Evita que la descripción del producto desborde */
-            max-height: 3.6em; /* Altura máxima de la descripción, ajusta según necesites */
-            line-height: 1.2em; /* Altura de línea para el texto */
-            text-overflow: ellipsis; /* Agrega puntos suspensivos al final del texto si se recorta */
-            margin-top: 10px; /* Espacio entre la imagen y la descripción */
-        }
-        
-        .subgrupo-titulo {
-            cursor: pointer;
-            margin-top: 7px;
-            margin-bottom: 7px;
-            padding: -3px 25px;
-            background-color: #13462e;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: background-color 0.3s;
-        }
-        
-        
-        
-        
-        .subgrupo-titulo:hover {
-            background-color: #218838; /* Cambia el color de fondo al pasar el cursor */
-        }
-        
-        
-    </style>
- 
 </head>
-
 <body>
     <header class="header">
-        <!-- Agrega la nueva sección de contacto con comentario -->
-        <div class="contact-section">
-           
-            <ul class="contact-list">
-                <li>
-                    <p class="contact-comment">¡Contáctanos!</p>
+        <nav class="navbar">
+            <ul class="menu-list">
+                <li><a href="#snacks">Snacks</a></li>
+                <li><a href="#panch">Panchos Cortos</a></li>
+                <li><a href="#superpanch">Super Panchos</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-btn">Hamburguesas</a>
+                    <div class="dropdown-content">
+                        <a href="#hamgin">Promo Hamburguesas Gigantes 120 y 125 grs</a>
+                        <a href="#titulo-lista-parri">Promo Hamburguesas Trad. 69 grs.</a>
+                        <a href="#titulo-lista-gigantes">Promo 30 Hamburguesas parrilleras 83 grs.</a>
+                    </div>
                 </li>
-                <li>
-                    <a href="mailto:panchofiestaok@gmail.com" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-envelope"></i> Correo Electronico
-                    </a>
-                </li>
-                <li>
-                    <a href="https://wa.me/+5491157136759" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.instagram.com/panchofiesta/" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-instagram"></i> Instagram
-                    </a>
-                </li>
-                
             </ul>
-        </div>
-        <div class="header-content container">
-            <div class="header-txt">
-            
-                <h1>Pancho Fiesta <br> tu mejor opcion</h1>
-                <p>
-                    Ya nos conoces. Tenemos los mejores productos y calidad a precios muy competitivos. Lo mejor para tu negocio y tu fiesta.
-                </p>
-              
-    
-            </div>
-            <div class="header-img">
-                <img src="img/Pan.png" alt="">
-            </div>
-        </div>
-       
-            
-            <nav class="navbar">
-                <ul class="menu-list">
-                    
-                    <li><a href="#snacks">Snacks</a></li>
-                    <!-- Agrega una clase "dropdown" a la lista desplegable -->
-                    <li><a href="#panch">Panchos Cortos</a></li>
-                    <li><a href="#superpanch">Super Panchos</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-btn">Hamburguesas</a>
-                        <!-- Agrega el contenido del menú desplegable -->
-                        <div class="dropdown-content">
-                            <a href="#hamgin">Promo Hamburguesas <br> Gigantes 120 y 125 grs</a>
-                            <a href="#titulo-lista-parri">Promo Hamburguesas <br> Trad. 69 grs.</a>
-                            <a href="#titulo-lista-gigantes">Promo 30 Hamburguesas <br> parrilleras 83 grs.</a>
-                            
-                            
-                        </div>
-                    </li>
-                    
-                </ul>
-            </nav>
-            <div>
-                <ul>
-                    <li class="submenu" onclick="toggleCarrito()">
-                        <img id="img-carrito" src="img/car.svg" alt="car">
-                        <div id="carrito">
-                            <table id="lista-carrito">
-                                <thead>
-                                    <tr>
-                                        <th>Nombre</th>
-                                        <th>Precio</th>
-                                    </tr>
-                                </thead>
-                                <tbody></tbody>
-                            </table>
-                            <a href="#" id="vaciar-carrito" class="btn-3">Vaciar Carrito</a>
-                            <button type="button" id="enviar-pedido" class="btn-3">Enviar Pedido</button>
-                            <div id="total">Total: 0.00 $</div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+        </nav>
+        <div class="cart-container">
+            <ul>
+                <li class="submenu" onclick="toggleCarrito()">
+                    <img id="img-carrito" src="img/car.svg" alt="car">
+                    <div id="cart-counter">0</div>
+                    <div id="carrito">
+                        <table id="lista-carrito">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Precio</th>
+                                    <th>Cantidad</th>
+                                    <th>Subtotal</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <a href="#" id="vaciar-carrito" class="btn-3">Vaciar Carrito</a>
+                        <button type="button" id="enviar-pedido" class="btn-3">Enviar Pedido</button>
+                        <div id="total">Total: 0.00 $</div>
+                    </div>
+                </li>
+            </ul>
         </div>
         <div id="resumen-popup">
             <table>
@@ -164,281 +58,106 @@
                     <th>Valor por Artículo</th>
                     <th>Total por Artículo</th>
                 </tr>
-                <!-- Aquí deberías tener filas para cada artículo en el carrito -->
             </table>
             <div>Total de la Compra: 400.00 $</div>
-            <!-- Agrega este botón en tu popup resumen -->
             <button id="aceptar-compra-btn">Aceptar Compra</button>
         </div>
-    </header>
-
-
-
+        <div class="contact-section">
+            <ul class="contact-list">
+                <li><p class="contact-comment">¡Contáctanos!</p></li>
+                <li><a href="mailto:panchofiestaok@gmail.com"><i class="fas fa-envelope"></i> Correo Electronico</a></li>
+                <li><a href="https://wa.me/+5491157136759"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a></li>
+                <li><a href="https://www.instagram.com/panchofiesta/"><i class="fab fa-instagram"></i> Instagram</a></li>
+            </ul>
+        </div>
     </header>
     <section class="oferts container">
         <div class="ofert-1 b1">
-    
             <div class="ofert-img">
-                <img src="img/newhamgig.png" id="hamgin" alt="">
+                <img src="img/1920hamb.svg" id="hamgin" alt="">
             </div>
-            
         </div>
         <h2 id="titulo-lista-gigantes" class="agregar-al-carrito" onclick="toggleSubGrupo('subgrupo-gigantes')">Promo <br> Hamburguesas Gigantes  <br> 110 grs. y 125 grs. con Pan y Aderezo &#9660;</h2>
         <div id="subgrupo-gigantes" class="subgrupo-container" style="display: none;">
-            <!-- 20 Hamburguesas Gigantes -->
             <h3 class="subgrupo-titulo" onclick="toggleProductos('lista-3')">20 Hamburguesas Gigantes  <br> 110 grs. y 125 grs. con Pan y Aderezo &#9660;</h3>
-            <div class="box-container" id="lista-3">
-                <!-- Aquí se cargarán los productos de la categoría de 20-->
+            <div class="box-container carousel" id="lista-3">
             </div>
-        
-            <!-- 40 Hamburguesas Gigantes-->
             <h3 class="subgrupo-titulo" onclick="toggleProductos('lista-4')">40 Hamburguesas Gigantes <br> 110 grs. y 125 grs. con Pan y Aderezo &#9660;</h3>
-            <div class="box-container" id="lista-4">
-                <!-- Aquí se cargarán los productos de la categoría de 40 -->
+            <div class="box-container carousel" id="lista-4">
             </div>
         </div>
         <div class="ofert-1 b1">
             <div class="ofert-img">
-                <img src="img/newparr.png" alt="">
+                <img src="img/1.svg" alt="">
             </div>
-            
         </div>
         <h2 id="titulo-lista-parri" class="agregar-al-carrito" onclick="toggleSubGrupo('subgrupo-parri')">Promo <br> hamburguesas Parrilleras <br> de 83 grs con pan y aderezo &#9660;</h2>
         <div id="subgrupo-parri" class="subgrupo-container" style="display: none;">
-            <!-- 30 Hamburguesas parri -->
             <h3 class="subgrupo-titulo" onclick="toggleProductos('lista-7')">30 hamburguesas parrilleras <br> de 83 grs con pan y aderezo &#9660;</h3>
-            <div class="box-container" id="lista-7">
-                <!-- Aquí se cargarán los productos de la categoría de 48-->
+            <div class="box-container carousel" id="lista-7">
             </div>
-        
-            <!-- 48 Hamburguesas parri-->
             <h3 class="subgrupo-titulo" onclick="toggleProductos('lista-8')">48 hamburguesas parrilleras <br> de 83 grs con pan y aderezo &#9660;</h3>
-            <div class="box-container" id="lista-8">
-                <!-- Aquí se cargarán los productos de la categoría de 30 -->
+            <div class="box-container carousel" id="lista-8">
             </div>
         </div>
         <div class="ofert-1 b1">
-           
             <div class="ofert-img">
-                <img src="img/newtrad.png" alt="">
+                <img src="img/2.svg" alt="">
             </div>
-            
         </div>
         <h2 id="titulo-lista-trad" class="agregar-al-carrito" onclick="toggleSubGrupo('subgrupo-trad')">Promo <br> hamburguesas tradicionales <br> de 69 grs con pan y aderezo &#9660;</h2>
         <div id="subgrupo-trad" class="subgrupo-container" style="display: none;">
-            <!-- 30 Hamburguesas Trad -->
             <h3 class="subgrupo-titulo" onclick="toggleProductos('lista-5')">30 hamburguesas tradicionales <br> de 69 grs con pan y aderezo &#9660;</h3>
-            <div class="box-container" id="lista-5">
-                <!-- Aquí se cargarán los productos de la categoría de 30-->
+            <div class="box-container carousel" id="lista-5">
             </div>
-        
-            <!-- 60 Hamburguesas Trad-->
             <h3 class="subgrupo-titulo" onclick="toggleProductos('lista-6')">60 hamburguesas tradicionales <br> de 69 grs con pan y aderezo &#9660;</h3>
-            <div class="box-container" id="lista-6">
-                <!-- Aquí se cargarán los productos de la categoría de 60 -->
+            <div class="box-container carousel" id="lista-6">
             </div>
-        </div>
-        
-        
-        <div class="ofert-1 b2">
-           
-            <div class="ofert-img">
-                <img src="img/newpanch.png" id="panch" alt="">
-            </div>
-        </div>
-
-        <h2 class="agregar-al-carrito" onclick="toggleProductos('lista-9')">Promo <br> 30 Panchos Cortos con pan y aderezo  &#9660;</h3>
-        <div class="box-container" id="lista-9">
-         
         </div>
         <div class="ofert-1 b2">
-           
             <div class="ofert-img">
-                <img src="img/newsuper.png" id="superpanch" alt="">
+                <img src="img/3.svg" id="panch" alt="">
             </div>
         </div>
-        <h2 class="agregar-al-carrito" onclick="toggleProductos('lista-10')">Promo <br> 36 Super Panchos con pan y aderezo  &#9660;</h3>
-        <div class="box-container" id="lista-10">
-       
-        </div>   
-        
+        <h2 class="agregar-al-carrito" onclick="toggleProductos('lista-9')">Promo <br> 30 Panchos Cortos con pan y aderezo  &#9660;</h2>
+        <div class="box-container carousel" id="lista-9" style="display: none;"></div>
+        <div class="ofert-1 b2">
+            <div class="ofert-img">
+                <img src="img/4.svg" id="superpanch" alt="">
+            </div>
+        </div>
+        <h2 class="agregar-al-carrito" onclick="toggleProductos('lista-10')">Promo <br> 36 Super Panchos con pan y aderezo  &#9660;</h2>
+        <div class="box-container carousel" id="lista-10" style="display: none;"></div>   
         <div class="ofert-1 b3">
-          
             <div class="ofert-img">
-                <img src="img/newsnacks.png" id="snacks" alt="">
+                <img src="img/5.svg" id="snacks" alt="">
             </div>
         </div>
-        <h2 class="agregar-al-carrito" onclick="toggleProductos('lista-11')">COMBO <br> Palitos, Papas fritas, Mani y Chizitos  &#9660;</h3>
-        <div class="box-container" id="lista-11">
-           
-        </div>   
+        <h2 class="agregar-al-carrito" onclick="toggleProductos('lista-11')">COMBO <br> Palitos, Papas fritas, Mani y Chizitos  &#9660;</h2>
+        <div class="box-container carousel" id="lista-11"></div>   
         <h2 id="titulo-lista-snacks" class="agregar-al-carrito" onclick="toggleSubGrupo('subgrupo-snacks')">Snacks &#9660;</h2>
         <div id="subgrupo-snacks" class="subgrupo-container" style="display: none;">
-            <!-- Subgrupo de Riquitos -->
             <h3 class="subgrupo-titulo" onclick="toggleProductos('lista-1')">Riquitos &#9660;</h3>
-            <div class="box-container" id="lista-1">
-                <!-- Aquí se cargarán los productos de la categoría de Riquitos -->
-            </div>
-        
-            <!-- Subgrupo de Leq -->
+            <div class="box-container carousel" id="lista-1"></div>
             <h3 class="subgrupo-titulo" onclick="toggleProductos('lista-2')">Leq &#9660;</h3>
-            <div class="box-container" id="lista-2">
-                <!-- Aquí se cargarán los productos de la categoría de Leq -->
-            </div>
-        </div>
-
+            <div class="box-container carousel" id="lista-2"></div>
     </section>
-
-    
-       
-
-    
-        
-    </main>
-    <section class="testimonial container">
-    
-        <h2>Que opinan nuestros clientes</h2>
-        <div class="testimonal-content">
-            <div class="testimonial-1">
-                <p>
-                    "Necesitábamos con urgencia una entrega un domingo y el equipo de Pancho Fiesta nos salvó. Nuestros productos llegaron a tiempo . Son confiable en días no laborables. ¡Gracias, Pancho Fiesta! Definitivamente, nuestra primera opción."
-                </p>
-                <img src="img/starts.png" alt="">
-                <h4>Kiosco "Jorge" C.A.B.A</h4>
-            </div>
-
-            <div class="testimonial-1">
-                <p>
-                    "Pancho Fiesta es mi proveedor desde hace varios años, la atención al cliente es muy buena. El servicio que brindan es excelente y productos llegan frescos y a tiempo."
-                </p>
-                <img src="img/starts.png" alt="">
-                <h4>Salon de fiestas Caballito  C.A.B.A</h4>
-            </div>
-
-        </div>
-
-    </section>
-    
     <footer class="footer">
         <div class="footer-content container">
-            <!-- Sección Quienes Somos -->
-            <div class="footer-section">
-                <h3>¿Quienes Somos? Pancho Fiesta</h3>
-                <ul>
-                    <li>Con más de 15 años de experiencia en el rubro, somos líderes como distribuidores de hamburguesas, super panchos y panificados. Nuestra trayectoria está marcada por el compromiso con la calidad, la variedad excepcional de productos y un servicio personalizado que ha establecido relaciones duraderas con nuestros clientes. Respaldados por proveedores de confianza, garantizamos eficiencia en la distribución y precios competitivos. Nos enorgullece ser tu socio confiable para llevar la excelencia gastronómica a tu negocio</li>
-                </ul>
-            </div>
-    
-            <!-- Sección Contacto -->
-            <div class="footer-section" style="margin-top: 20px;">
-                <h3>Contacto</h3>
-                <ul class="contact-list">
-                    <li>
-                        <a href="mailto:panchofiestaok@gmail.com" target="_blank" rel="noopener noreferrer">
-                            <i class="fas fa-envelope"> Correo Electronico</i> 
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://wa.me/+5491157136759" target="_blank" rel="noopener noreferrer">
-                            <i class="fa-brands fa-whatsapp"> WhatsApp</i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.instagram.com//panchofiesta/" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-instagram"> Instagram</i> 
-                        </a>
-                    </li>
-                    <li>
-                        <strong>Dirección:</strong> Av. Enrique Santamarina 706, B1842JOO Gran Buenos Aires, Provincia de Buenos Aires
-                    </li>
-                </ul>
-            </div>
-    
-            <!-- Contenedor para el iframe -->
-            <div class="map-container">
-                <!-- Corregir el código del iframe -->
-                <iframe
-                    width="100%"
-                    height="300"
-                    frameborder="0"
-                    style="border:0;"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3275.266989935412!2d-58.480545305705604!3d-34.82437909924166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcd142bd1ddeb7%3A0x9426f1a73c9bc708!2sAv.%20Enrique%20Santamarina%20706%2C%20B1842JOO%20Gran%20Buenos%20Aires%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1708877137748!5m2!1ses-419!2sar"
-                    allowfullscreen
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                ></iframe>
-            </div>
-        
-            <div class="footer-section" style="text-align: center; margin-top: 20px;">
-                <h3>Desarrollado por</h3>
-                <ul>
-                    
-                    <li>
-                        <a href="mailto:licrissojavier@gmail.com" target="_blank" rel="noopener noreferrer">
-                            <i class="fas fa-envelope"> MFWP</i> 
-                        </a>
-                    </li>
-                </ul>
-            </div>
-    </div>
+            <!-- Contenido del footer -->
+        </div>
     </footer>
     <script src="script.js"></script>
     <script>
         const socket = io();
 
-    socket.on('productosObtenidos', (productos) => {
-        productos.forEach((producto) => {
-            const divBox = document.createElement('div');
-            divBox.className = 'box';
-
-            const img = document.createElement('img');
-            img.src = producto.imagen; // Asegúrate de tener la propiedad 'imagen' en tu objeto de producto
-            img.alt = producto.nombre;
-
-            const divProductTxt = document.createElement('div');
-            divProductTxt.className = 'product-txt';
-
-            const h3 = document.createElement('h3');
-            h3.textContent = producto.nombre;
-
-            const p1 = document.createElement('p');
-            p1.textContent = producto.descripcion; // Asegúrate de tener la propiedad 'descripcion'
-
-            const p2 = document.createElement('p');
-            p2.className = 'precio';
-            p2.id = `precio-producto-${producto.id}`;
-            p2.textContent = `$${producto.precio.toFixed(2)}`;
-
-            const a = document.createElement('a');
-            a.href = '#'; // Asegúrate de poner el enlace correcto
-            a.className = 'agregar-carrito btn-3';
-            a.dataset.id = producto.id;
-            a.textContent = 'Agregar al carrito';
-
-            divProductTxt.appendChild(h3);
-            divProductTxt.appendChild(p1);
-            divProductTxt.appendChild(p2);
-            divProductTxt.appendChild(a);
-
-            divBox.appendChild(img);
-            divBox.appendChild(divProductTxt);
-
-            // Agrega el producto a cada lista sin restricción
-            document.querySelectorAll('.box-container').forEach((listaProductos) => {
-                listaProductos.appendChild(divBox.cloneNode(true)); // Usar cloneNode para evitar la reubicación del mismo elemento
-            });
-        });
-    });
-        socket.on('preciosActualizados', (productos) => {
-            const listaProductos = document.getElementById('lista-1');
-            listaProductos.innerHTML = '';
-
+        socket.on('productosObtenidos', (productos) => {
             productos.forEach((producto) => {
                 const divBox = document.createElement('div');
                 divBox.className = 'box';
 
                 const img = document.createElement('img');
-                img.src = producto.imagen; // Asegúrate de tener la propiedad 'imagen' en tu objeto de producto
+                img.src = producto.imagen;
                 img.alt = producto.nombre;
 
                 const divProductTxt = document.createElement('div');
@@ -448,7 +167,7 @@
                 h3.textContent = producto.nombre;
 
                 const p1 = document.createElement('p');
-                p1.textContent = producto.descripcion; // Cambié 'calidad premium' por producto.descripcion, asegúrate de tener la propiedad 'descripcion'
+                p1.textContent = producto.descripcion;
 
                 const p2 = document.createElement('p');
                 p2.className = 'precio';
@@ -456,7 +175,53 @@
                 p2.textContent = `$${producto.precio.toFixed(2)}`;
 
                 const a = document.createElement('a');
-                a.href = '#'; // Asegúrate de poner el enlace correcto
+                a.href = '#';
+                a.className = 'agregar-carrito btn-3';
+                a.dataset.id = producto.id;
+                a.textContent = 'Agregar al carrito';
+
+                divProductTxt.appendChild(h3);
+                divProductTxt.appendChild(p1);
+                divProductTxt.appendChild(p2);
+                divProductTxt.appendChild(a);
+
+                divBox.appendChild(img);
+                divBox.appendChild(divProductTxt);
+
+                document.querySelectorAll('.box-container').forEach((listaProductos) => {
+                    listaProductos.appendChild(divBox.cloneNode(true));
+                });
+            });
+        });
+
+        socket.on('preciosActualizados', (productos) => {
+            const listaProductos = document.getElementById('lista-1');
+            listaProductos.innerHTML = '';
+
+            productos.forEach((producto) => {
+                const divBox = document.createElement('div');
+                divBox.className = 'box';
+
+                const img = document.createElement('img');
+                img.src = producto.imagen;
+                img.alt = producto.nombre;
+
+                const divProductTxt = document.createElement('div');
+                divProductTxt.className = 'product-txt';
+
+                const h3 = document.createElement('h3');
+                h3.textContent = producto.nombre;
+
+                const p1 = document.createElement('p');
+                p1.textContent = producto.descripcion;
+
+                const p2 = document.createElement('p');
+                p2.className = 'precio';
+                p2.id = `precio-producto-${producto.id}`;
+                p2.textContent = `$${producto.precio.toFixed(2)}`;
+
+                const a = document.createElement('a');
+                a.href = '#';
                 a.className = 'agregar-carrito btn-3';
                 a.dataset.id = producto.id;
                 a.textContent = 'Agregar al carrito';
@@ -482,17 +247,16 @@
                 container.style.display = "none";
             }
         }
-        
+
         function toggleProductos(id) {
             var container = document.getElementById(id);
             if (container.style.display === "none" || container.style.display === "") {
-                container.style.display = "block"; // Cambia a 'block' para hacer visible el elemento
+                container.style.display = "block";
             } else {
                 container.style.display = "none";
             }
         }
-    
-        // Ocultar los subgrupos al cargar la página
+
         document.addEventListener("DOMContentLoaded", function() {
             var subgrupoLeq = document.getElementById('lista-2');
             var subgrupoRiquitos = document.getElementById('lista-1');
@@ -500,8 +264,6 @@
             subgrupoRiquitos.style.display = "none";
         });
     </script>
-   
     <div id="scrollTopBtn" title="Ir al inicio">&#9650;</div>
 </body>
-
 </html>
